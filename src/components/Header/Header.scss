@@ -1,0 +1,31 @@
+.header-container {
+    width: 1920px;
+    background: #F5F5F5;
+    display: flex;
+    padding: 32px 48px;
+    align-items: center;
+    gap: 24px;
+  
+    .logo-container {
+      .logo-image {
+        width: 250px;
+        height: 45.775px;
+      }
+    }
+
+    .selects-container {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .select-label {
+      align-items: center;
+      background-color: #F5F5F5;
+      display: flex;
+      border: none;
+      padding: 10px;
+      font-size: 20px;
+      gap: 4px;
+    }
+  }
+  

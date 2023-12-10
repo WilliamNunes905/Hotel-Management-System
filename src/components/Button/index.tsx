@@ -3,9 +3,9 @@ import {
   faCartFlatbedSuitcase,
 } from '@fortawesome/free-solid-svg-icons/faCartFlatbedSuitcase';
 import './ReservationButton.scss';
-import { Badge, Avatar } from 'antd';
+import { Badge } from 'antd';
 
-function ReservationButton() {
+export function ReservationButton() {
   return (
     <>
       <button>
@@ -22,5 +22,3 @@ function ReservationButton() {
     </>
   );
 }
-
-export default ReservationButton;

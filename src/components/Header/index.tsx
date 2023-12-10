@@ -1,11 +1,11 @@
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { NavBar } from '../NavBar';
+import { ReservationButton } from '../Button';
 import logoSvg from '../../assets/logoSilbeck.svg';
-import NavBar from '../NavBar';
-import ReservationButton from '../Button';
 import './Header.scss';
 
-function Header() {
+export function Header() {
   return (
     <div className="header-container">
       <div className="logo-container">
@@ -26,5 +26,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;

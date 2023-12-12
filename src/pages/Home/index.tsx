@@ -1,11 +1,12 @@
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+// import { Header } from '../../components/Header';
+// import { Footer } from '../../components/Footer';
 
 function Home() {
   return (
     <div>
-      <Header />
-      <Footer />
+      <h1>Home</h1>
+      {/* <Header />
+      <Footer /> */}
     </div>
   );
 }

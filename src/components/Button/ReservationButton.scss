@@ -1,7 +1,7 @@
 $button-padding: 15px 25px;
 $button-border-radius: 8px;
 
-button {
+.button-reservation {
   display: flex;
   padding: $button-padding;
   flex-direction: row;
@@ -11,7 +11,7 @@ button {
   border-radius: var(--components-button-global-border-radius-lg, $button-border-radius);
   border: 2px solid #182558;
   color: #182558;
-  font-family: 'Inter';
+  font-family: Inter;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -21,7 +21,7 @@ button {
     color: #ffffff;
   }
 
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.28s, color 0.3s;
 }
 
 .container-badge {

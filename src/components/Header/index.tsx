@@ -1,7 +1,10 @@
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faCartFlatbedSuitcase,
+} from '@fortawesome/free-solid-svg-icons/faCartFlatbedSuitcase';
+import { Badge } from 'antd';
 import { NavBar } from '../NavBar';
-import { ReservationButton } from '../Button';
 import logoSvg from '../../assets/logoSilbeck.svg';
 import './Header.scss';
 
@@ -22,7 +25,17 @@ export function Header() {
           <FontAwesomeIcon icon={ faChevronDown } />
         </h1>
       </div>
-      <ReservationButton />
+      <button className="button-reservation">
+        <FontAwesomeIcon icon={ faCartFlatbedSuitcase } />
+        Reservas
+      </button>
+      <div className="container-badge">
+        <Badge
+          size="default"
+          count={ 5 }
+          className="badge-reservation"
+        />
+      </div>
     </div>
   );
 }

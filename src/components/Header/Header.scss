@@ -28,4 +28,45 @@
       gap: 4px;
     }
   }
+
+  $button-padding: 15px 25px;
+  $button-border-radius: 8px;
+  
+  .button-reservation {
+    display: flex;
+    padding: $button-padding;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: var(--components-button-global-border-radius-lg, $button-border-radius);
+    border: 2px solid #182558;
+    color: #182558;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+  
+    &:hover {
+      background-color: #182558;
+      color: #ffffff;
+    }
+    transition: background-color 0.28s, color 0.3s;
+  }
+  
+  .container-badge {
+    display: flex;
+    height: var(--components-badge-component-indicator-height, 20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .badge-reservation {
+      position: absolute;
+      width: 22px;
+      right: 62px;
+      top: 22px;
+    }
+  }
+  
   

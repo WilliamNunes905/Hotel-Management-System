@@ -8,7 +8,7 @@ import { Badge } from 'antd';
 export function ReservationButton() {
   return (
     <>
-      <button>
+      <button className="button-reservation">
         <FontAwesomeIcon icon={ faCartFlatbedSuitcase } />
         Reservas
       </button>

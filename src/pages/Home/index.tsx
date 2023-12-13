@@ -1,9 +1,9 @@
+import { SearchPage } from '../../components/SearchPage';
+
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
-      {/* <Header />
-      <Footer /> */}
+      <SearchPage />
     </div>
   );
 }

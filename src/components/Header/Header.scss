@@ -33,6 +33,7 @@
   $button-border-radius: 8px;
   
   .button-reservation {
+    cursor: pointer;
     display: flex;
     padding: $button-padding;
     flex-direction: row;

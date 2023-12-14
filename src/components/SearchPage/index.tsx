@@ -1,9 +1,37 @@
+import { useState } from 'react';
 import { DatePicker, Space, Select } from 'antd';
 import './SearchPage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { Hospedes, HotelStay } from '../../types/HospedesType';
+import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 
 export function SearchPage() {
+  const [hotelGuests, setHotelGuests] = useState<Hospedes>({
+    adults: '1',
+    child: '1',
+  });
+  const [hotelStay, setHotelStay] = useState<HotelStay>({
+    entry: '',
+    exit: '',
+  });
+  const dateFormatList = ['DD/MM/YYYY'];
+
+  const handleHotelGuests = (key: keyof Hospedes, value: string) => {
+    setHotelGuests({ ...hotelGuests, [key]: value });
+  };
+
+  function handleHotelStay(key: keyof HotelStay, dateString: string) {
+    setHotelStay({ ...hotelStay, [key]: dateString });
+  }
+
+  function searchButton() {
+    saveToLocalStorage('Guests-Adults', hotelGuests.adults);
+    saveToLocalStorage('Guests-Child', hotelGuests.child);
+    saveToLocalStorage('Entry-Hotel', hotelStay.entry);
+    saveToLocalStorage('Exit-Hotel', hotelStay.exit);
+  }
+
   return (
     <div className="container-search">
 
@@ -17,7 +45,9 @@ export function SearchPage() {
             Entrada
             <DatePicker
               className="datePicker"
-              placeholder="Selecione uma data"
+              placeholder="01/01/2024"
+              format={ dateFormatList }
+              onChange={ (_date, dateString) => handleHotelStay('entry', dateString) }
             />
           </Space>
         </div>
@@ -27,7 +57,9 @@ export function SearchPage() {
             Saída
             <DatePicker
               className="datePicker"
-              placeholder="Selecione uma data"
+              placeholder="05/01/2024"
+              format={ dateFormatList }
+              onChange={ (_date, dateString) => handleHotelStay('exit', dateString) }
             />
           </Space>
         </div>
@@ -43,7 +75,8 @@ export function SearchPage() {
           <Space>
             <Select
               className="select-style"
-              defaultValue="1"
+              value={ hotelGuests.adults }
+              onChange={ (value) => handleHotelGuests('adults', value) }
               options={ [
                 { value: '1', label: '1' },
                 { value: '2', label: '2' },
@@ -58,7 +91,8 @@ export function SearchPage() {
           <Space>
             <Select
               className="select-style"
-              defaultValue="1"
+              value={ hotelGuests.child }
+              onChange={ (value) => handleHotelGuests('child', value) }
               options={ [
                 { value: '1', label: '1' },
                 { value: '2', label: '2' },
@@ -70,7 +104,10 @@ export function SearchPage() {
         </div>
       </div>
       <div className="container-button">
-        <button className="button-style">
+        <button
+          className="button-style"
+          onClick={ searchButton }
+        >
           <FontAwesomeIcon icon={ faMagnifyingGlass } />
           Pesquisar
         </button>

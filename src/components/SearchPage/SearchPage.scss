@@ -97,10 +97,11 @@
   flex-direction: column;
   justify-content: center;
 
-  $button-padding: 14px 25px;
+  $button-padding: 13px 25px 14px 25px;
   $button-border-radius: 8px;
 
   .button-style {
+    cursor: pointer;
     display: flex;
     padding: $button-padding;
     align-items: center;

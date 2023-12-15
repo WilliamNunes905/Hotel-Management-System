@@ -3,16 +3,16 @@ import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoSvg from '../../assets/logoSilbeckWhite.svg';
-import { fetchFooterData } from '../../services/FooterData';
-import { FooterData } from '../../types/FooterData';
+import { axiosFooterData } from '../../services/FooterData';
+import { FooterDataTypes } from '../../types/FooterData';
 import './Footer.scss';
 
 export function Footer() {
-  const [footerData, setFooterData] = useState<FooterData | null>(null);
+  const [footerData, setFooterData] = useState<FooterDataTypes | null>(null);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await fetchFooterData();
+      const data = await axiosFooterData();
       setFooterData(data);
     }
     fetchData();

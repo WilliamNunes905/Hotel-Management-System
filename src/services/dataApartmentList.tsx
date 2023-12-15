@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { FooterDataTypes } from '../types/FooterData';
+import { Quarto } from '../types/ApartmentListType';
 
-export async function axiosFooterData(): Promise<FooterDataTypes> {
+export async function dataApartmentList(): Promise<Quarto[]> {
   try {
-    const response = await axios.get<FooterDataTypes>('https://run.mocky.io/v3/9e51aa23-2c5d-46bc-9b25-074cfc617ab6');
+    const response = await axios.get<Quarto[]>('https://run.mocky.io/v3/c20be17a-bc5c-4736-a5e5-dbcff9591b5a');
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {

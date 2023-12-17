@@ -9,11 +9,13 @@ import { Rate } from 'antd';
 import { useEffect, useState } from 'react';
 import { dataApartmentList } from '../../services/dataApartmentList';
 import { Quarto } from '../../types/ApartmentListType';
+import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import './ApartmentList.scss';
 /* eslint-disable react/jsx-max-depth */
 
 export function ApartmentList() {
   const [apartmentList, setApartmentList] = useState<Quarto[] | null>(null);
+  const [bedrooms, setBedrooms] = useState<string[]>([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -23,6 +25,11 @@ export function ApartmentList() {
     }
     fetchData();
   }, []);
+
+  function handleClick(apartment: any) {
+    setBedrooms([...bedrooms, apartment]);
+    saveToLocalStorage('bedrooms', bedrooms);
+  }
 
   return (
     <div className="frame-28">
@@ -51,7 +58,11 @@ export function ApartmentList() {
                     <p className="text-style">{apartment.nome}</p>
                     <div className="frame-96">
                       <Rate disabled defaultValue={ apartment.avaliacao.nota } />
-                      <p>160 Comentários</p>
+                      <p>
+                        { apartment.avaliacao.quantidade }
+                        {' '}
+                        Comentários
+                      </p>
                       <div className="frame-89">
                         <h2>
                           <FontAwesomeIcon
@@ -107,6 +118,7 @@ export function ApartmentList() {
                     </div>
                     <button
                       className="button-style"
+                      onClick={ () => handleClick(apartment) }
                     >
                       Reservar
                     </button>

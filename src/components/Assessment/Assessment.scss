@@ -1,0 +1,40 @@
+.container-assessment {
+  align-items: flex-start;
+  background: #F5F5F5;
+  border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+  display: flex;
+  padding: 60px 48px;
+  flex-direction: column;
+  gap: 48px;
+  width: 1920px;
+  border: 1px solid red;
+
+
+  .frame-113 {
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    display: flex;
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+    align-items: flex-end;
+    gap: 32px;
+
+    
+    .frame-115 {
+      align-items: flex-start;
+      display: flex;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      flex-direction: column;
+      justify-content: center;
+      gap: 48px;
+      border: 1px solid red;
+    }
+
+    .frame-110 {
+      display: flex;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+    }
+
+  }
+}

@@ -45,7 +45,7 @@ export function SearchPage() {
             Entrada
             <DatePicker
               className="datePicker"
-              placeholder="01/01/2024"
+              placeholder="Selecione a data"
               format={ dateFormatList }
               onChange={ (_date, dateString) => handleHotelStay('entry', dateString) }
             />
@@ -57,7 +57,7 @@ export function SearchPage() {
             Saída
             <DatePicker
               className="datePicker"
-              placeholder="05/01/2024"
+              placeholder="Selecione a data"
               format={ dateFormatList }
               onChange={ (_date, dateString) => handleHotelStay('exit', dateString) }
             />

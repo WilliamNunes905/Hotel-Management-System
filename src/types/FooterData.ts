@@ -1,4 +1,4 @@
-export type FooterData = {
+export type FooterDataTypes = {
   id: number;
   url: string;
   nome: string;

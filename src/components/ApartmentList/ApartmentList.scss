@@ -1,6 +1,5 @@
 .frame-28 {
   display: flex;
-  width: 1920px;
   padding: 48px;
   flex-direction: column;
   align-items: flex-start;
@@ -171,6 +170,15 @@
       font-weight: 600;
       line-height: 24px;
       }
+
+      .notification {
+        color: var(--Components-Notification-Global-colorText, rgba(0, 0, 0, 0.88));
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px;
+      }
     }
 
     
@@ -194,13 +202,14 @@
     }
     
     .description {
+    align-self: stretch;
     color: var(--Neutral-Color-colorText, #4B4B4B);
     font-family: Inter;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
+    text-align: justify;
     line-height: 28px;
-    align-self: stretch;
     }
 
     .frame-95 {
@@ -266,8 +275,7 @@
       gap: 7.011px;
     }
 
-
-        }
       }
     }
   }
+}

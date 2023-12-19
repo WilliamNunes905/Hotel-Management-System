@@ -1,20 +1,19 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { DatePicker, Space, Select } from 'antd';
 import './SearchPage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Hospedes, HotelStay } from '../../types/HospedesType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
+import { SearchContext } from '../../contexts/SearchContext';
 
 export function SearchPage() {
-  const [hotelGuests, setHotelGuests] = useState<Hospedes>({
-    adults: '1',
-    child: '1',
-  });
-  const [hotelStay, setHotelStay] = useState<HotelStay>({
-    entry: '',
-    exit: '',
-  });
+  const {
+    hotelGuests,
+    setHotelGuests,
+    hotelStay,
+    setHotelStay } = useContext(SearchContext);
+
   const dateFormatList = ['DD/MM/YYYY'];
 
   const handleHotelGuests = (key: keyof Hospedes, value: string) => {
@@ -26,10 +25,8 @@ export function SearchPage() {
   }
 
   function searchButton() {
-    saveToLocalStorage('Guests-Adults', hotelGuests.adults);
-    saveToLocalStorage('Guests-Child', hotelGuests.child);
-    saveToLocalStorage('Entry-Hotel', hotelStay.entry);
-    saveToLocalStorage('Exit-Hotel', hotelStay.exit);
+    saveToLocalStorage('Guests', hotelGuests);
+    saveToLocalStorage('stay_Hotel', hotelStay);
   }
 
   return (
@@ -94,6 +91,7 @@ export function SearchPage() {
               value={ hotelGuests.child }
               onChange={ (value) => handleHotelGuests('child', value) }
               options={ [
+                { value: '0', label: '0' },
                 { value: '1', label: '1' },
                 { value: '2', label: '2' },
                 { value: '3', label: '3' },

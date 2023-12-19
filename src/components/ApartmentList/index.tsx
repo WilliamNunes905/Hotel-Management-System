@@ -5,17 +5,22 @@ import {
   faMugHot,
   faTv,
   faUser, faWifi } from '@fortawesome/free-solid-svg-icons';
-import { Rate } from 'antd';
-import { useEffect, useState } from 'react';
+import { Rate, message } from 'antd';
+import { useContext, useEffect } from 'react';
 import { dataApartmentList } from '../../services/dataApartmentList';
 import { Quarto } from '../../types/ApartmentListType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
+import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
 /* eslint-disable react/jsx-max-depth */
 
 export function ApartmentList() {
-  const [apartmentList, setApartmentList] = useState<Quarto[] | null>(null);
-  const [bedrooms, setBedrooms] = useState<string[]>([]);
+  const [messageApi, contextHolder] = message.useMessage();
+  const {
+    apartmentList,
+    setApartmentList,
+    setBedrooms,
+  } = useContext(ApartmentContext);
 
   useEffect(() => {
     async function fetchData() {
@@ -24,11 +29,20 @@ export function ApartmentList() {
       setApartmentList(threeApartment);
     }
     fetchData();
-  }, []);
+  }, [setApartmentList]);
 
   function handleClick(apartment: any) {
-    setBedrooms([...bedrooms, apartment]);
-    saveToLocalStorage('bedrooms', bedrooms);
+    setBedrooms((prevBedrooms) => {
+      const updatedBedrooms = [...prevBedrooms, apartment];
+      saveToLocalStorage('bedrooms', updatedBedrooms);
+      return updatedBedrooms;
+    });
+    messageApi.open({
+      type: 'success',
+      content: 'Adicionado com Sucesso'
+        + ' O produto escolhido foi adicionado ao carrinho de reservas!',
+      duration: 4,
+    });
   }
 
   return (
@@ -115,6 +129,9 @@ export function ApartmentList() {
                         {' '}
                         {apartment.preco.toFixed(2)}
                       </h3>
+                    </div>
+                    <div className="notification">
+                      {contextHolder}
                     </div>
                     <button
                       className="button-style"

@@ -3,12 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartFlatbedSuitcase,
 } from '@fortawesome/free-solid-svg-icons/faCartFlatbedSuitcase';
+import { useContext } from 'react';
 import { Badge } from 'antd';
 import { NavBar } from '../NavBar';
+import { ApartmentContext } from '../../contexts/ApartmentContext';
 import logoSvg from '../../assets/logoSilbeck.svg';
 import './Header.scss';
 
 export function Header() {
+  const { bedrooms } = useContext(ApartmentContext);
+
   return (
     <div className="header-container">
       <div className="logo-container">
@@ -32,7 +36,8 @@ export function Header() {
       <div className="container-badge">
         <Badge
           size="default"
-          count={ 5 }
+          count={ bedrooms.length }
+          showZero
           className="badge-reservation"
         />
       </div>

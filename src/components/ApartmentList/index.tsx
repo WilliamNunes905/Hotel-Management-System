@@ -5,7 +5,7 @@ import {
   faMugHot,
   faTv,
   faUser, faWifi } from '@fortawesome/free-solid-svg-icons';
-import { Rate, message } from 'antd';
+import { Rate } from 'antd';
 import { useContext, useEffect } from 'react';
 import { dataApartmentList } from '../../services/dataApartmentList';
 import { Quarto } from '../../types/ApartmentListType';
@@ -15,7 +15,6 @@ import './ApartmentList.scss';
 /* eslint-disable react/jsx-max-depth */
 
 export function ApartmentList() {
-  const [messageApi, contextHolder] = message.useMessage();
   const {
     apartmentList,
     setApartmentList,
@@ -37,17 +36,11 @@ export function ApartmentList() {
       saveToLocalStorage('bedrooms', updatedBedrooms);
       return updatedBedrooms;
     });
-    messageApi.open({
-      type: 'success',
-      content: 'Adicionado com Sucesso'
-      + ' O produto escolhido foi adicionado ao carrinho de reservas!',
-      className: 'ant-message-notice-content ',
-    });
   }
 
   return (
     <div className="frame-28">
-      <div className="frame-24">
+      <div className="frame-24" id="quartos-section">
         <div className="frame-26">
           <div className="frame-106">
             <h1 className="h1-quartos">Quartos</h1>
@@ -128,7 +121,6 @@ export function ApartmentList() {
                         {apartment.preco.toFixed(2)}
                       </h3>
                     </div>
-                    {contextHolder}
                     <button
                       className="button-style"
                       onClick={ () => handleClick(apartment) }

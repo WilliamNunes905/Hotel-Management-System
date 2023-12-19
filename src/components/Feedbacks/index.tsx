@@ -19,7 +19,7 @@ export function Feedbacks() {
   }, []);
 
   return (
-    <div className="container-assessment">
+    <div className="container-assessment" id="feedback">
       <div className="frame-113">
         <div className="frame-115" />
         <h1 className="title-style">Avaliações</h1>

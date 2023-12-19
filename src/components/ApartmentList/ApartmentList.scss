@@ -170,18 +170,10 @@
       font-weight: 600;
       line-height: 24px;
       }
-
-      .notification {
-        color: var(--Components-Notification-Global-colorText, rgba(0, 0, 0, 0.88));
-font-family: Inter;
-font-size: 20px;
-font-style: normal;
-font-weight: 400;
-line-height: 24px;
-      }
     }
-
     
+  }
+  
     .text-style {
       color: #14274A;
       font-family: Inter;
@@ -191,7 +183,7 @@ line-height: 24px;
       line-height: normal;
       letter-spacing: 1.4px;
     }
-
+    
     .title-dayle {
       color: var(--Neutral-Color-colorTextSecondary, #7A7A7A);
       font-family: Inter;
@@ -202,23 +194,23 @@ line-height: 24px;
     }
     
     .description {
-    align-self: stretch;
-    color: var(--Neutral-Color-colorText, #4B4B4B);
-    font-family: Inter;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
+      align-self: stretch;
+      color: var(--Neutral-Color-colorText, #4B4B4B);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
     text-align: justify;
     line-height: 28px;
-    }
-
-    .frame-95 {
+  }
+  
+  .frame-95 {
       align-items: center;
       display: flex;
       padding: var(--Components-Input-Component-paddingBlockSM, 0px);
       border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
       gap: 14.022px;
-
+      
       .icon-style-wifi {
         display: flex;
         width: 30.582px;
@@ -229,7 +221,7 @@ line-height: 24px;
         align-items: center;
         gap: 7.011px;
       }
-    
+      
       .icon-style-bell{
         display: flex;
         width: 30.582px;
@@ -252,7 +244,7 @@ line-height: 24px;
       align-items: center;
       gap: 7.011px;
     }
-
+    
     .icon-style-tv {
       display: flex;
       width: 30.582px;
@@ -263,7 +255,7 @@ line-height: 24px;
       align-items: center;
       gap: 7.011px;
     }
-
+    
     .icon-style-hotTub {
       display: flex;
       width: 30.582px;
@@ -274,8 +266,7 @@ line-height: 24px;
       align-items: center;
       gap: 7.011px;
     }
-
-      }
-    }
+    
   }
+}
 }

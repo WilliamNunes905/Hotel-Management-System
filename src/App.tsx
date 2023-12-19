@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { SearchProvider } from './contexts/SearchContext';
 import { ApartmentProvider } from './contexts/ApartmentContext';
+import { NotFound } from './components/PageNotFound';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={ <Home /> } />
-          <Route path="*" element={ <Home /> } />
+          <Route path="*" element={ <NotFound /> } />
         </Routes>
         <Footer />
       </SearchProvider>

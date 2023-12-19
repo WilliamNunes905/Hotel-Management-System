@@ -40,8 +40,8 @@ export function ApartmentList() {
     messageApi.open({
       type: 'success',
       content: 'Adicionado com Sucesso'
-        + ' O produto escolhido foi adicionado ao carrinho de reservas!',
-      duration: 4,
+      + ' O produto escolhido foi adicionado ao carrinho de reservas!',
+      className: 'ant-message-notice-content ',
     });
   }
 
@@ -51,9 +51,7 @@ export function ApartmentList() {
         <div className="frame-26">
           <div className="frame-106">
             <h1 className="h1-quartos">Quartos</h1>
-            <p
-              className="textInform"
-            >
+            <p className="textInform">
               Todos os nossos tipos de quartos incluem café da manhã
             </p>
           </div>
@@ -130,9 +128,7 @@ export function ApartmentList() {
                         {apartment.preco.toFixed(2)}
                       </h3>
                     </div>
-                    <div className="notification">
-                      {contextHolder}
-                    </div>
+                    {contextHolder}
                     <button
                       className="button-style"
                       onClick={ () => handleClick(apartment) }

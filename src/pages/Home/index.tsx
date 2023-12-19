@@ -1,13 +1,13 @@
 import { SearchPage } from '../../components/SearchPage';
 import { ApartmentList } from '../../components/ApartmentList';
-import { Assessment } from '../../components/Assessment';
+import { Feedbacks } from '../../components/Feedbacks';
 
 function Home() {
   return (
     <div>
       <SearchPage />
       <ApartmentList />
-      <Assessment />
+      <Feedbacks />
     </div>
   );
 }

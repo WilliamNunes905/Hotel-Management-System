@@ -2,20 +2,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Rate } from 'antd';
 import { useEffect, useState } from 'react';
-import { getAssessmentData } from '../../services/AssessmentData';
-import { AssessmentType } from '../../types/AssessmentType';
+import { getFeedbacksData } from '../../services/FeedbacksData';
+import { FeedbacksType } from '../../types/FeedbacksType';
 import iconSvg from '../../assets/UserIcon.svg';
-import './Assessment.scss';
+import './Feedbacks.scss';
 
-export function Assessment() {
-  const [assessmentData, setAssessmentData] = useState<AssessmentType[]>([]);
+export function Feedbacks() {
+  const [FeedBackData, setFeedBackData] = useState<FeedbacksType[]>([]);
 
   useEffect(() => {
-    async function getAssessment() {
-      const data = await getAssessmentData();
-      setAssessmentData(data.splice(0, 2));
+    async function getFeedback() {
+      const data = await getFeedbacksData();
+      setFeedBackData(data.splice(0, 2));
     }
-    getAssessment();
+    getFeedback();
   }, []);
 
   return (
@@ -32,17 +32,17 @@ export function Assessment() {
         />
         <div className="frame-139">
           {
-            assessmentData.map((assessment) => (
-              <div key={ assessment.id } className="frame-107">
+            FeedBackData.map((Feedback) => (
+              <div key={ Feedback.id } className="frame-107">
                 <div className="icon-user">
                   <img src={ iconSvg } alt="icon" />
                 </div>
                 <div className="frame-108">
-                  <h2 className="text-autor">{ assessment.autor }</h2>
-                  <p>{ assessment.descricao }</p>
+                  <h2 className="text-autor">{ Feedback.autor }</h2>
+                  <p>{ Feedback.descricao }</p>
                   <div className="frame-109">
-                    <p>{ assessment.data }</p>
-                    <Rate disabled defaultValue={ assessment.nota } />
+                    <p>{ Feedback.data }</p>
+                    <Rate disabled defaultValue={ Feedback.nota } />
                   </div>
                 </div>
               </div>

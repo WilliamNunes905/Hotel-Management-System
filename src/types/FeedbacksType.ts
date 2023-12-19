@@ -1,4 +1,4 @@
-export type AssessmentType = {
+export type FeedbacksType = {
   id: number;
   descricao: string;
   autor: string;

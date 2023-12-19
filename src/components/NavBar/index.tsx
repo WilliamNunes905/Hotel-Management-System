@@ -5,7 +5,7 @@ export function NavBar() {
   return (
     <div className="container">
       <nav>
-        <NavLink to="/messages">
+        <NavLink to="/">
           Menu
         </NavLink>
         <NavLink to="/messages">

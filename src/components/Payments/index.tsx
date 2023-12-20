@@ -2,7 +2,10 @@
 import { useEffect, useState } from 'react';
 import './Payments.scss';
 import { Divider, DatePicker } from 'antd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Quarto } from '../../types/ApartmentListType';
+import { HotelStay } from '../../types/HospedesType';
 
 export function Payments() {
   const [formInfo, setFormInfo] = useState({
@@ -16,12 +19,16 @@ export function Payments() {
   });
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [storageBedroom, setStorageBedroom] = useState<Quarto[]>([]);
-  console.log(storageBedroom);
+  const [storageStayHotel, setStorageStayHotel] = useState<HotelStay | null>(null);
 
   useEffect(() => {
     const bedrooms = localStorage.getItem('bedrooms');
+    const stayHotel = localStorage.getItem('stay_Hotel');
     if (bedrooms) {
       setStorageBedroom(JSON.parse(bedrooms));
+    }
+    if (stayHotel) {
+      setStorageStayHotel(JSON.parse(stayHotel));
     }
   }, []);
 
@@ -60,7 +67,6 @@ export function Payments() {
 
   return (
     <div className="container-payments">
-
       <div className="contentWrapper">
         <div className="contactInformation">
           <h2>Identificação</h2>
@@ -85,7 +91,6 @@ export function Payments() {
 
         <div className="payment">
           <h2>Pagamento</h2>
-
           <label className="RadioButtons">
             <input
               type="radio"
@@ -94,16 +99,14 @@ export function Payments() {
               onChange={ (event) => handleChange(event) }
             />
             Cartão de Crédito
-
             <input
               type="radio"
               name="pix"
               checked={ formInfo.pix }
               onChange={ (event) => handleChange(event) }
             />
-            Pix
+            PIX
           </label>
-
           <label className="frame-10">
             Nome Cartão
             <input
@@ -113,26 +116,30 @@ export function Payments() {
               onChange={ (event) => handleChange(event) }
             />
           </label>
-          <div className="frame-13">
-            Validade
-            <DatePicker
-              className="datePicker"
-              name="cardValidity"
-              onChange={
+          <div className="frame-135">
+            <div className="frame-13">
+              Validade
+              <DatePicker
+                className="datePicker"
+                name="cardValidity"
+                onChange={
                 (_date, dateString) => handleDateChange('cardValidity', dateString)
               }
-              placeholder="00/00"
-              format={ dateFormatList }
-            />
-            CVC
-            <input
-              type="text"
-              name="cardCVC"
-              value={ formInfo.cardCVC }
-              maxLength={ 3 }
-              placeholder="000"
-              onChange={ (event) => handleChange(event) }
-            />
+                placeholder="00/00"
+                format={ dateFormatList }
+              />
+            </div>
+            <div className="frame-14">
+              CVC
+              <input
+                type="text"
+                name="cardCVC"
+                value={ formInfo.cardCVC }
+                maxLength={ 3 }
+                placeholder="000"
+                onChange={ (event) => handleChange(event) }
+              />
+            </div>
           </div>
         </div>
         {
@@ -150,31 +157,62 @@ export function Payments() {
           <h1>Resumo da Reserva</h1>
           <div className="shopping-Cart">
             <div className="content">
-              <div className="details">
-                <div className="nameAndType">
-                  <h2 className="master">hotel</h2>
-                  <p>Diárias: 2</p>
-                  <p>Estadia: 08/12/2023 - 10/12/2023</p>
-                  <p>Qtde Hóspedes: 2</p>
-                </div>
-                <div className="frame-138">
-                  <h3 className="moneyFrame">R$ 200,00</h3>
-                  <button
-                    type="button"
-                    className="buttonContent"
-                  >
-                    -
-                    <p>2</p>
-                    +
-                  </button>
-                </div>
-              </div>
-              <div className="controler">
-                <button type="button">Excluir</button>
-              </div>
+              {
+                storageBedroom.map((bedroom) => (
+                  <div className="details" key={ bedroom.id }>
+                    <div className="nameAndType">
+                      <h2 className="master">{ bedroom.nome }</h2>
+                      <p>Diárias: 2</p>
+                      <p>
+                        {
+                        `Estadia: ${storageStayHotel?.entry} - ${storageStayHotel?.exit}`
+                        }
+                      </p>
+                      <p>
+                        Qtde Hóspedes:
+                        {' '}
+                        { bedroom.hospedes }
+                      </p>
+                    </div>
+                    <div className="frame-138">
+                      <h3 className="moneyFrame">
+                        R$
+                        {' '}
+                        { bedroom.preco.toFixed(2) }
+                      </h3>
+                      <button
+                        type="button"
+                        className="buttonContent"
+                      >
+                        -
+                        <p>2</p>
+                        +
+                      </button>
+                      <div className="controler">
+                        <button
+                          type="button"
+                          className="buttonDelete"
+                        >
+                          <FontAwesomeIcon icon={ faTrash } />
+                          Excluir
+                        </button>
+                      </div>
+                      <Divider className="divider" />
+                    </div>
+                  </div>
+                ))
+              }
+              <Divider className="divider" />
             </div>
           </div>
-          <Divider className="divider" />
+        </div>
+        <div className="moneyFrame">
+          <h1>Valor Total</h1>
+          <h2>
+            R$
+            {' '}
+            { storageBedroom.reduce((acc, curr) => acc + curr.preco, 0).toFixed(2) }
+          </h2>
         </div>
         <div className="button-container">
           <button>Cancelar</button>

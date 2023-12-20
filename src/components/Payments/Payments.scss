@@ -4,6 +4,7 @@
   align-items: flex-start;
   gap: 48px;
   background: #F5F5F5;
+  font-family: Inter;
 
     h2 {
       color: var(--Neutral-Color-Neutral-Color-Text, #333);
@@ -45,15 +46,6 @@
         gap: 24px;
       }
 
-      .divider {
-        align-self: stretch;
-        align-items: center;
-        display: flex;
-        height: 1px;
-        background-color: rgba(0, 0, 0, 0.06);
-        justify-content: center;
-      }
-
       .frame-10 {
         align-self: stretch;
         display: flex;
@@ -88,20 +80,32 @@
         border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
       }
 
-      .frame-13 {
+      .frame-135 {
         display: flex;
         padding: var(--Components-Input-Component-paddingBlockSM, 0px);
-        border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
-        flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
-        flex: 1 0 0;
-        color: var(--Neutral-Color-colorText, #4B4B4B);
-        font-family: Inter;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 24px;
+        gap: 24px;
+        align-self: stretch;
+
+        .frame-13 {
+          display: flex;
+          padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+          border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          flex: 1 0 0;
+        }
+
+        .frame-14 {
+          display: flex;
+          padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+          border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          flex: 1 0 0;
+        }
       }
 
       .datePicker {
@@ -156,6 +160,7 @@
 
       .controler {
         align-items: flex-end;
+        background: white;
         display: flex;
         padding: var(--Components-Input-Component-paddingBlockSM, 0px);
         border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
@@ -205,14 +210,52 @@
     }
 
     .buttonContent {
+      background-color: white;
       display: flex;
-      padding: 8px var(--Components-Button-Component-onlyIconSize, 16px);
+      padding: 6px var(--Components-Button-Component-onlyIconSize, 14px);
       justify-content: center;
       align-items: center;
       gap: var(--Components-Button-Component-onlyIconSize, 16px);
       border-radius: var(--Components-Button-Global-borderRadiusLG, 8px);
       border: 2px solid var(--Neutral-Color-colorText, #4B4B4B);
-      box-shadow: 0px 2px 0px 0px rgba(5, 145, 255, 0.10);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
     }
+  }
+
+  .divider {
+    display: flex;
+    clear: both;
+    width: 100%;
+    min-width: 100%;
+    margin: 4px;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .moneyFrame {
+    display: flex;
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  .buttonDelete {
+    cursor: pointer;
+    display: flex;
+    color: var(--Error-Color-Error-Color, #D54343);
+    font-family: Font Awesome 6 Pro;
+    background: white;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    align-items: center;
+    gap: 4px;
+    border: none;
   }
 }

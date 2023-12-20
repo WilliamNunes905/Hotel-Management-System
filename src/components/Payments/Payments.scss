@@ -1,0 +1,119 @@
+.container-payments {
+  display: flex;
+  padding: 48px 80px;
+  align-items: flex-start;
+  gap: 48px;
+  background: #F5F5F5;
+
+  h2 {
+    color: var(--Neutral-Color-Neutral-Color-Text, #333);
+    font-family: Inter;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+  }
+
+  input {
+    display: flex;
+    height: 56px;
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px) var(--Components-DatePicker-Global-controlPaddingHorizontal, 12px);
+    border-radius: 8px;
+    border: 2px solid var(--Components-DatePicker-Global-colorBorder, #D9D9D9);
+    background: var(--Components-DatePicker-Global-colorBgContainer, #FFF);
+    align-items: center;
+    gap: var(--Components-DatePicker-Global-marginXXS, 4px);
+    align-self: stretch;
+  }
+
+  .contentWrapper {
+    display: flex;
+    padding-top: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    flex: 1 0 0;
+
+  .contactInformation {
+    align-self: stretch;
+    align-items: flex-start;
+    display: flex;
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .divider {
+    align-self: stretch;
+    align-items: center;
+    display: flex;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.06);
+    justify-content: center;
+  }
+
+  .frame-10 {
+    align-self: stretch;
+    display: flex;
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    color: var(--Neutral-Color-colorText, #4B4B4B);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}
+
+    .payment {
+      align-items: flex-start;
+      align-self: stretch;
+      display: flex;
+      border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      flex-direction: column;
+      gap: 24px;
+
+      .RadioButtons {
+        display: flex;
+        padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+        align-items: center;
+        gap: var(--Components-Button-Component-onlyIconSize, 10px);
+        border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+      }
+
+      .frame-13 {
+        display: flex;
+        padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+        border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        flex: 1 0 0;
+        color: var(--Neutral-Color-colorText, #4B4B4B);
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+      }
+
+      .datePicker {
+        display: flex;
+        height: 56px;
+        padding: var(--Components-Input-Component-paddingBlockSM, 0px) var(--Components-DatePicker-Global-controlPaddingHorizontal, 12px);
+        align-items: center;
+        gap: var(--Components-DatePicker-Global-marginXXS, 4px);
+        align-self: stretch;
+        border-radius: 8px;
+        border: 2px solid var(--Components-DatePicker-Global-colorBorder, #D9D9D9);
+      background: var(--Components-DatePicker-Global-colorBgContainer, #FFF);
+      }
+    }
+}

@@ -1,6 +1,8 @@
-import { useState } from 'react';
+/* eslint-disable react/jsx-max-depth */
+import { useEffect, useState } from 'react';
 import './Payments.scss';
 import { Divider, DatePicker } from 'antd';
+import { Quarto } from '../../types/ApartmentListType';
 
 export function Payments() {
   const [formInfo, setFormInfo] = useState({
@@ -13,7 +15,36 @@ export function Payments() {
     cardCVC: '',
   });
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
-  console.log(formInfo);
+  const [storageBedroom, setStorageBedroom] = useState<Quarto[]>([]);
+  console.log(storageBedroom);
+
+  useEffect(() => {
+    const bedrooms = localStorage.getItem('bedrooms');
+    if (bedrooms) {
+      setStorageBedroom(JSON.parse(bedrooms));
+    }
+  }, []);
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+    const { name, type } = event.target;
+
+    const value = type === 'checkbox'
+      ? (event.target as HTMLInputElement).checked : event.target.value;
+
+    setFormInfo({
+      ...formInfo,
+      [name]: value,
+    });
+    localStorage.setItem('FormInfo', JSON.stringify(formInfo));
+  }
+
+  const handleDateChange = (key: any, dateString: any) => {
+    setFormInfo((prevFormInfo) => ({
+      ...prevFormInfo,
+      [key]: dateString,
+    }));
+  };
+  const dateFormatList = ['DD/MM/YYYY'];
 
   function validateForm() {
     const errors = [];
@@ -27,32 +58,12 @@ export function Payments() {
     return errors.length === 0;
   }
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
-    const { name, type } = event.target;
-
-    const value = type === 'checkbox'
-      ? (event.target as HTMLInputElement).checked : event.target.value;
-
-    setFormInfo({
-      ...formInfo,
-      [name]: value,
-    });
-  }
-
-  const handleDateChange = (key: any, dateString: any) => {
-    setFormInfo((prevFormInfo) => ({
-      ...prevFormInfo,
-      [key]: dateString,
-    }));
-  };
-  const dateFormatList = ['DD/MM/YYYY'];
-
   return (
     <div className="container-payments">
+
       <div className="contentWrapper">
         <div className="contactInformation">
           <h2>Identificação</h2>
-
           <label className="frame-10">
             Nome *
             <input
@@ -113,8 +124,6 @@ export function Payments() {
               placeholder="00/00"
               format={ dateFormatList }
             />
-          </div>
-          <div className="frame-13">
             CVC
             <input
               type="text"
@@ -135,6 +144,42 @@ export function Payments() {
               </div>
             )
         }
+      </div>
+      <div className="contentTotal">
+        <div className="contentWrapper-Total">
+          <h1>Resumo da Reserva</h1>
+          <div className="shopping-Cart">
+            <div className="content">
+              <div className="details">
+                <div className="nameAndType">
+                  <h2 className="master">hotel</h2>
+                  <p>Diárias: 2</p>
+                  <p>Estadia: 08/12/2023 - 10/12/2023</p>
+                  <p>Qtde Hóspedes: 2</p>
+                </div>
+                <div className="frame-138">
+                  <h3 className="moneyFrame">R$ 200,00</h3>
+                  <button
+                    type="button"
+                    className="buttonContent"
+                  >
+                    -
+                    <p>2</p>
+                    +
+                  </button>
+                </div>
+              </div>
+              <div className="controler">
+                <button type="button">Excluir</button>
+              </div>
+            </div>
+          </div>
+          <Divider className="divider" />
+        </div>
+        <div className="button-container">
+          <button>Cancelar</button>
+          <button>✔️ Confirmar pagamento</button>
+        </div>
       </div>
     </div>
   );

@@ -258,4 +258,52 @@
     gap: 4px;
     border: none;
   }
+
+  .button-container {
+    align-items: flex-start;
+    display: flex;
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    gap: var(--Components-Avatar-Component-containerSize, 32px);
+    align-self: stretch;
+
+    .button-Cancel {
+      align-items: center;
+      background: white;
+      display: flex;
+      padding: 8px 24px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      flex: 1 0 0;
+      border-radius: var(--Components-Button-Global-borderRadiusLG, 8px);
+      border: 2px solid var(--Neutral-Color-colorTextTertiary, #A3A3A3);
+      box-shadow: 0px 2px 0px 0px rgba(5, 145, 255, 0.10);
+      color: var(--Neutral-Color-colorTextTertiary, #A3A3A3);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+    }
+    
+    .button-payment {
+      display: flex;
+      background: var(--Sucess-Color-colorSuccessActive, #2d7a11);
+      box-shadow: 0px 2px 0px 0px rgba(5, 145, 255, 0.10);
+      border-radius: var(--Components-Button-Global-borderRadiusLG, 8px);
+      height: var(--Components-Button-Global-controlHeightLG, 40px);
+      padding: 8px 24px;
+      width: 504px;
+      justify-content: center;
+      align-items: center;
+      gap: var(--Components-Button-Global-marginXS, 8px);
+      color: var(--Neutral-Color-White-BG, #FFF);
+      font-family: Font Awesome 6 Pro;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
 }

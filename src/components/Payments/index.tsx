@@ -1,25 +1,23 @@
 /* eslint-disable react/jsx-max-depth */
-import { useEffect, useState } from 'react';
-import './Payments.scss';
+import { useEffect, useContext } from 'react';
 import { Divider, DatePicker } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Quarto } from '../../types/ApartmentListType';
-import { HotelStay } from '../../types/HospedesType';
+import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { PaymentsContext } from '../../contexts/PaymentsContext';
+import './Payments.scss';
 
 export function Payments() {
-  const [formInfo, setFormInfo] = useState({
-    name: '',
-    email: '',
-    creditCard: false,
-    pix: false,
-    cardName: '',
-    cardValidity: '',
-    cardCVC: '',
-  });
-  const [errorMessage, setErrorMessage] = useState<string[]>([]);
-  const [storageBedroom, setStorageBedroom] = useState<Quarto[]>([]);
-  const [storageStayHotel, setStorageStayHotel] = useState<HotelStay | null>(null);
+  const dateFormatList = ['DD/MM/YYYY'];
+  const {
+    formInfo,
+    setFormInfo,
+    errorMessage,
+    validateForm,
+    storageBedroom,
+    setStorageBedroom,
+    storageStayHotel,
+    setStorageStayHotel,
+  } = useContext(PaymentsContext);
 
   useEffect(() => {
     const bedrooms = localStorage.getItem('bedrooms');
@@ -30,11 +28,10 @@ export function Payments() {
     if (stayHotel) {
       setStorageStayHotel(JSON.parse(stayHotel));
     }
-  }, []);
+  }, [setStorageBedroom, setStorageStayHotel]);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     const { name, type } = event.target;
-
     const value = type === 'checkbox'
       ? (event.target as HTMLInputElement).checked : event.target.value;
 
@@ -42,7 +39,7 @@ export function Payments() {
       ...formInfo,
       [name]: value,
     });
-    localStorage.setItem('FormInfo', JSON.stringify(formInfo));
+    localStorage.setItem('Form', JSON.stringify(formInfo));
   }
 
   const handleDateChange = (key: any, dateString: any) => {
@@ -51,19 +48,6 @@ export function Payments() {
       [key]: dateString,
     }));
   };
-  const dateFormatList = ['DD/MM/YYYY'];
-
-  function validateForm() {
-    const errors = [];
-
-    if (formInfo.name === '') errors.push('O campo nome é Obrigatorio');
-    if (formInfo.email === '') errors.push('O campo E-mail é Obrigatorio');
-    if (formInfo.cardName === '') errors.push('O campo Nome Cartão é Obrigatorio');
-    if (formInfo.cardValidity === '') errors.push('O campo Validade é Obrigatorio');
-    if (formInfo.cardCVC === '') errors.push('O campo CVC é Obrigatorio');
-    setErrorMessage(errors);
-    return errors.length === 0;
-  }
 
   return (
     <div className="container-payments">
@@ -215,8 +199,11 @@ export function Payments() {
           </h2>
         </div>
         <div className="button-container">
-          <button>Cancelar</button>
-          <button>✔️ Confirmar pagamento</button>
+          <button className="button-Cancel">Cancelar</button>
+          <button className="button-payment">
+            <FontAwesomeIcon icon={ faCheck } />
+            Confirmar pagamento
+          </button>
         </div>
       </div>
     </div>

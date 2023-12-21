@@ -28,8 +28,6 @@ type PaymentsContextValue = {
   storageStayHotel: HotelStay | null;
   setStorageStayHotel: Dispatch<SetStateAction<HotelStay | null>>;
   validateForm: () => boolean;
-  countDaily: number;
-  setCountDaily: Dispatch<SetStateAction<number>>
 };
 
 const initialValue: PaymentsContextValue = {
@@ -50,8 +48,6 @@ const initialValue: PaymentsContextValue = {
   storageStayHotel: null,
   setStorageStayHotel: () => {},
   validateForm: () => false,
-  countDaily: 1,
-  setCountDaily: () => {},
 };
 
 export const PaymentsContext = createContext(initialValue);
@@ -69,7 +65,6 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [storageBedroom, setStorageBedroom] = useState<Quarto[]>([]);
   const [storageStayHotel, setStorageStayHotel] = useState<HotelStay | null>(null);
-  const [countDaily, setCountDaily] = useState(1);
 
   function validateForm() {
     const errors = [];
@@ -95,8 +90,6 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
         storageStayHotel,
         setStorageStayHotel,
         validateForm,
-        countDaily,
-        setCountDaily,
       } }
     >
       { children }

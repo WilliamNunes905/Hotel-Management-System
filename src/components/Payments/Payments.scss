@@ -212,7 +212,7 @@
     .buttonContent {
       background-color: white;
       display: flex;
-      padding: 6px var(--Components-Button-Component-onlyIconSize, 14px);
+      padding: 5px var(--Components-Button-Component-onlyIconSize, 12px);
       justify-content: center;
       align-items: center;
       gap: var(--Components-Button-Component-onlyIconSize, 16px);
@@ -223,6 +223,18 @@
       font-style: normal;
       font-weight: 500;
       line-height: 20px;
+
+      .buttonStyle {
+        background-color: white;
+        border: none;
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+        width: 10px;
+      }
     }
   }
 

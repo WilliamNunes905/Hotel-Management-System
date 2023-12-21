@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-max-depth */
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import { Divider, DatePicker } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -16,8 +16,9 @@ export function Payments() {
     setStorageBedroom,
     storageStayHotel,
     setStorageStayHotel,
-    countDaily,
   } = useContext(PaymentsContext);
+
+  const [countDailyList, setCountDailyList] = useState<Record<number, number>>({});
 
   useEffect(() => {
     const bedrooms = localStorage.getItem('bedrooms');
@@ -49,6 +50,20 @@ export function Payments() {
     const updatedBedrooms = storageBedroom.filter((bedroom) => bedroom.id !== id);
     setStorageBedroom(updatedBedrooms);
     localStorage.setItem('bedrooms', JSON.stringify(updatedBedrooms));
+  }
+
+  function handleIncrement(id: number) {
+    setCountDailyList((prevCountDailyList) => ({
+      ...prevCountDailyList,
+      [id]: (prevCountDailyList[id] || 0) + 1,
+    }));
+  }
+
+  function handleDecrement(id: number) {
+    setCountDailyList((prevCountDailyList) => ({
+      ...prevCountDailyList,
+      [id]: Math.max((prevCountDailyList[id] || 0) - 1),
+    }));
   }
 
   return (
@@ -151,7 +166,7 @@ export function Payments() {
                       <p>
                         Diárias:
                         {' '}
-                        {countDaily}
+                        {countDailyList[bedroom.id] || 1}
                       </p>
                       <p>
                         {
@@ -170,14 +185,23 @@ export function Payments() {
                         {' '}
                         { bedroom.preco.toFixed(2) }
                       </h3>
-                      <button
-                        type="button"
-                        className="buttonContent"
-                      >
-                        -
-                        <p>{countDaily}</p>
-                        +
-                      </button>
+                      <div className="buttonContent">
+                        <button
+                          type="button"
+                          className="buttonStyle"
+                          onClick={ () => handleDecrement(bedroom.id) }
+                        >
+                          -
+                        </button>
+                        <p>{countDailyList[bedroom.id] || 1}</p>
+                        <button
+                          type="button"
+                          className="buttonStyle"
+                          onClick={ () => handleIncrement(bedroom.id) }
+                        >
+                          +
+                        </button>
+                      </div>
                       <div className="controler">
                         <button
                           type="button"

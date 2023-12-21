@@ -285,6 +285,13 @@
       font-style: normal;
       font-weight: 600;
       line-height: 24px;
+
+    }
+    .button-Cancel:hover {
+      background: white;
+      color: var(--Neutral-Color-colorTextTertiary, black);
+      border: 2px solid var(--Neutral-Color-colorTextTertiary, black);
+      transition: 0.3s;
     }
     
     .button-payment {

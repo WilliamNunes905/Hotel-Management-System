@@ -4,26 +4,20 @@ import {
   faCartFlatbedSuitcase,
 } from '@fortawesome/free-solid-svg-icons/faCartFlatbedSuitcase';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { Badge } from 'antd';
 import { NavBar } from '../NavBar';
 import logoSvg from '../../assets/logoSilbeck.svg';
 import './Header.scss';
+import { ApartmentContext } from '../../contexts/ApartmentContext';
 
 export function Header() {
   const navigate = useNavigate();
-  const [StorageBedroom, setStorageBedroom] = useState([]);
+  const { bedrooms } = useContext(ApartmentContext);
 
   function handleNavigateToPayment() {
     navigate('/payment');
   }
-
-  useEffect(() => {
-    const bedrooms = localStorage.getItem('bedrooms');
-    if (bedrooms) {
-      setStorageBedroom(JSON.parse(bedrooms));
-    }
-  }, [setStorageBedroom]);
 
   return (
     <div className="header-container">
@@ -51,7 +45,7 @@ export function Header() {
       <div className="container-badge">
         <Badge
           size="default"
-          count={ StorageBedroom.length }
+          count={ bedrooms.length }
           showZero
           className="badge-reservation"
         />

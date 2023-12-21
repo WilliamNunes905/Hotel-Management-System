@@ -12,22 +12,18 @@ export function Payments() {
     formInfo,
     setFormInfo,
     errorMessage,
-    validateForm,
     storageBedroom,
     setStorageBedroom,
     storageStayHotel,
     setStorageStayHotel,
+    countDaily,
   } = useContext(PaymentsContext);
 
   useEffect(() => {
     const bedrooms = localStorage.getItem('bedrooms');
     const stayHotel = localStorage.getItem('stay_Hotel');
-    if (bedrooms) {
-      setStorageBedroom(JSON.parse(bedrooms));
-    }
-    if (stayHotel) {
-      setStorageStayHotel(JSON.parse(stayHotel));
-    }
+    if (bedrooms)setStorageBedroom(JSON.parse(bedrooms));
+    if (stayHotel) setStorageStayHotel(JSON.parse(stayHotel));
   }, [setStorageBedroom, setStorageStayHotel]);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
@@ -48,6 +44,12 @@ export function Payments() {
       [key]: dateString,
     }));
   };
+
+  function handleDeleteBedroom(id: number) {
+    const updatedBedrooms = storageBedroom.filter((bedroom) => bedroom.id !== id);
+    setStorageBedroom(updatedBedrooms);
+    localStorage.setItem('bedrooms', JSON.stringify(updatedBedrooms));
+  }
 
   return (
     <div className="container-payments">
@@ -142,11 +144,15 @@ export function Payments() {
           <div className="shopping-Cart">
             <div className="content">
               {
-                storageBedroom.map((bedroom) => (
-                  <div className="details" key={ bedroom.id }>
+                storageBedroom.map((bedroom, index) => (
+                  <div className="details" key={ index }>
                     <div className="nameAndType">
                       <h2 className="master">{ bedroom.nome }</h2>
-                      <p>Diárias: 2</p>
+                      <p>
+                        Diárias:
+                        {' '}
+                        {countDaily}
+                      </p>
                       <p>
                         {
                         `Estadia: ${storageStayHotel?.entry} - ${storageStayHotel?.exit}`
@@ -169,13 +175,14 @@ export function Payments() {
                         className="buttonContent"
                       >
                         -
-                        <p>2</p>
+                        <p>{countDaily}</p>
                         +
                       </button>
                       <div className="controler">
                         <button
                           type="button"
                           className="buttonDelete"
+                          onClick={ () => handleDeleteBedroom(bedroom.id) }
                         >
                           <FontAwesomeIcon icon={ faTrash } />
                           Excluir

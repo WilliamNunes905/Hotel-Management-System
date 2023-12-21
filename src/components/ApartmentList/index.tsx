@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBellConcierge,
@@ -12,7 +13,6 @@ import { Quarto } from '../../types/ApartmentListType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
-/* eslint-disable react/jsx-max-depth */
 
 export function ApartmentList() {
   const {
@@ -82,7 +82,11 @@ export function ApartmentList() {
                       </div>
                     </div>
                     <div className="description">
-                      <p className="width-description">{apartment.descricao}</p>
+                      <p
+                        className={ `width-description-${apartment.id}` }
+                      >
+                        {apartment.descricao}
+                      </p>
                     </div>
                     <div className="frame-95">
                       <FontAwesomeIcon

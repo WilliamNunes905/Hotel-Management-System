@@ -50,6 +50,7 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
     if (formInfo?.cardName === '') errors.push('O campo Nome do Cartão é Obrigatório');
     if (formInfo?.cardValidity === '') errors.push('O campo Validade é Obrigatório');
     if (formInfo?.cardCVC === '') errors.push('O campo CVC é Obrigatório');
+    errors.map((error) => message.warning(error, 2));
     return errors.length === 0;
   }
 

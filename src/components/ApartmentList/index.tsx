@@ -38,7 +38,7 @@ export function ApartmentList() {
     });
     message.success({
       content: 'Adicionado com Sucesso',
-      duration: 3,
+      duration: 2,
     });
   }
 

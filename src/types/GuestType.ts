@@ -1,9 +1,6 @@
-export type Hospedes = {
+export type Guest = {
   adults: string;
   child: string;
-};
-
-export type HotelStay = {
   entry: string,
   exit: string,
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBellConcierge,
@@ -5,14 +6,13 @@ import {
   faMugHot,
   faTv,
   faUser, faWifi } from '@fortawesome/free-solid-svg-icons';
-import { Rate } from 'antd';
+import { Rate, message } from 'antd';
 import { useContext, useEffect } from 'react';
 import { dataApartmentList } from '../../services/dataApartmentList';
 import { Quarto } from '../../types/ApartmentListType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
-/* eslint-disable react/jsx-max-depth */
 
 export function ApartmentList() {
   const {
@@ -33,8 +33,12 @@ export function ApartmentList() {
   function handleClick(apartment: any) {
     setBedrooms((prevBedrooms) => {
       const updatedBedrooms = [...prevBedrooms, apartment];
-      saveToLocalStorage('bedrooms', updatedBedrooms);
+      saveToLocalStorage('rooms', updatedBedrooms);
       return updatedBedrooms;
+    });
+    message.success({
+      content: 'Adicionado com Sucesso',
+      duration: 2,
     });
   }
 
@@ -82,7 +86,11 @@ export function ApartmentList() {
                       </div>
                     </div>
                     <div className="description">
-                      <p className="width-description">{apartment.descricao}</p>
+                      <p
+                        className={ `width-description-${apartment.id}` }
+                      >
+                        {apartment.descricao}
+                      </p>
                     </div>
                     <div className="frame-95">
                       <FontAwesomeIcon

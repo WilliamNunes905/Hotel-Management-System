@@ -7,10 +7,10 @@ export function NavBar() {
         <a href="/">
           Menu
         </a>
-        <a href="#quartos-section">
+        <a href="/#quartos-section">
           Quartos
         </a>
-        <a href="#feedback">
+        <a href="/#feedback">
           Avaliações
         </a>
       </nav>

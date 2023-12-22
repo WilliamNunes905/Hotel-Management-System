@@ -1,10 +1,10 @@
-type Caracteristica = {
+type Characteristic = {
   id: number;
   nome: string;
   icone: string;
 };
 
-type Avaliacao = {
+type Assessment = {
   nota: number;
   quantidade: number;
 };
@@ -18,6 +18,6 @@ export type Quarto = {
   img: string;
   descricao: string;
   preco: number;
-  caracteristicas: Caracteristica[];
-  avaliacao: Avaliacao;
+  caracteristicas: Characteristic[];
+  avaliacao: Assessment;
 };

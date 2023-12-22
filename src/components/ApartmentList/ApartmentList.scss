@@ -194,14 +194,40 @@
     }
     
     .description {
+      max-height: 250px;
+
+    .width-description-1 {
       align-self: stretch;
       color: var(--Neutral-Color-colorText, #4B4B4B);
       font-family: Inter;
       font-size: 20px;
       font-style: normal;
       font-weight: 400;
-    text-align: justify;
-    line-height: 28px;
+      text-align: justify;
+      line-height: 25px;
+    }
+    .width-description-2 {
+      align-self: stretch;
+      margin: 10px;
+      color: var(--Neutral-Color-colorText, #4B4B4B);
+      font-family: Inter;
+      font-size: 25px;
+      font-style: normal;
+      font-weight: 400;
+      text-align: justify;
+      line-height: 28px;
+    }
+    .width-description-3 {
+      align-self: stretch;
+      color: var(--Neutral-Color-colorText, #4B4B4B);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      text-align: justify;
+      line-height: 22px;
+    }
+    
   }
   
   .frame-95 {

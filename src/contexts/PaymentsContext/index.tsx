@@ -41,7 +41,6 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
   const [formInfo, setFormInfo] = useState<TypeForm>(initialFormInfo);
   const [storageBedroom, setStorageBedroom] = useState<Quarto[]>([]);
   const [storageStayHotel, setStorageStayHotel] = useState<Guest | null>(null);
-  console.log(formInfo);
 
   function validateForm() {
     const errors = [];
@@ -60,7 +59,6 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
       [key]: dateString,
     }));
   };
-  console.log(validateForm.length);
 
   function clearGlobalState() {
     if (validateForm()) {

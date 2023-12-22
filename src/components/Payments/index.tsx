@@ -11,11 +11,11 @@ export function Payments() {
   const {
     formInfo,
     setFormInfo,
-    errorMessage,
     storageBedroom,
     setStorageBedroom,
     storageStayHotel,
     setStorageStayHotel,
+    handleClick,
   } = useContext(PaymentsContext);
 
   const [countDailyList, setCountDailyList] = useState<Record<number, number>>({});
@@ -143,15 +143,6 @@ export function Payments() {
             </div>
           </div>
         </div>
-        {
-            errorMessage && (
-              <div>
-                {errorMessage.map((message) => (
-                  <p key={ message }>{message}</p>
-                ))}
-              </div>
-            )
-        }
       </div>
       <div className="contentTotal">
         <div className="contentWrapper-Total">
@@ -183,7 +174,11 @@ export function Payments() {
                       <h3 className="moneyFrame">
                         R$
                         {' '}
-                        { bedroom.preco.toFixed(2) }
+                        {storageBedroom.reduce(
+                          (acc, curr) => acc + (countDailyList[curr.id] || 1)
+                          * curr.preco,
+                          0,
+                        ).toFixed(2)}
                       </h3>
                       <div className="buttonContent">
                         <button
@@ -226,12 +221,16 @@ export function Payments() {
           <h2>
             R$
             {' '}
-            { storageBedroom.reduce((acc, curr) => acc + curr.preco, 0).toFixed(2) }
+            {storageBedroom.reduce((acc, curr) => acc + (countDailyList[curr.id] || 1)
+                * curr.preco, 0).toFixed(2)}
           </h2>
         </div>
         <div className="button-container">
           <button className="button-Cancel">Cancelar</button>
-          <button className="button-payment">
+          <button
+            className="button-payment"
+            onClick={ () => handleClick() }
+          >
             <FontAwesomeIcon icon={ faCheck } />
             Confirmar pagamento
           </button>

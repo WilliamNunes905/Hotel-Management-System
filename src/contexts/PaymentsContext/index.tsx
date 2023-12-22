@@ -1,81 +1,66 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react';
 import { Quarto } from '../../types/ApartmentListType';
-import { HotelStay } from '../../types/HospedesType';
+import { Hospedes } from '../../types/HospedesType';
+
+type TypeForm = {
+  name: string;
+  email: string;
+  creditCard: boolean;
+  pix: boolean;
+  cardName: string;
+  cardValidity: string;
+  cardCVC: string;
+};
 
 type PaymentsContextValue = {
-  formInfo: {
-    name: string;
-    email: string;
-    creditCard: boolean;
-    pix: boolean;
-    cardName: string;
-    cardValidity: string;
-    cardCVC: string;
-  };
-  setFormInfo: Dispatch<SetStateAction<{
-    name: string;
-    email: string;
-    creditCard: boolean;
-    pix: boolean;
-    cardName: string;
-    cardValidity: string;
-    cardCVC: string;
-  }>>;
+  formInfo: TypeForm;
+  setFormInfo: Dispatch<SetStateAction<TypeForm>>;
   errorMessage: string[];
   setErrorMessage: Dispatch<SetStateAction<string[]>>;
   storageBedroom: Quarto[];
   setStorageBedroom: Dispatch<SetStateAction<Quarto[]>>;
-  storageStayHotel: HotelStay | null;
-  setStorageStayHotel: Dispatch<SetStateAction<HotelStay | null>>;
-  validateForm: () => boolean;
+  storageStayHotel: Hospedes | null;
+  setStorageStayHotel: Dispatch<SetStateAction<Hospedes | null>>;
+  validateForm: () => void;
+  handleClick: () => void;
 };
 
-const initialValue: PaymentsContextValue = {
-  formInfo: {
-    name: '',
-    email: '',
-    creditCard: false,
-    pix: false,
-    cardName: '',
-    cardValidity: '',
-    cardCVC: '',
-  },
-  setFormInfo: () => {},
-  errorMessage: [],
-  setErrorMessage: () => {},
-  storageBedroom: [],
-  setStorageBedroom: () => {},
-  storageStayHotel: null,
-  setStorageStayHotel: () => {},
-  validateForm: () => false,
+const initialFormInfo = {
+  name: '',
+  email: '',
+  creditCard: false,
+  pix: false,
+  cardName: '',
+  cardValidity: '',
+  cardCVC: '',
 };
 
-export const PaymentsContext = createContext(initialValue);
+export const PaymentsContext = createContext({} as PaymentsContextValue);
 
 export function PaymentsProvider({ children } : { children: React.ReactNode }) {
-  const [formInfo, setFormInfo] = useState({
-    name: '',
-    email: '',
-    creditCard: false,
-    pix: false,
-    cardName: '',
-    cardValidity: '',
-    cardCVC: '',
-  });
+  const [formInfo, setFormInfo] = useState<TypeForm>(initialFormInfo);
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [storageBedroom, setStorageBedroom] = useState<Quarto[]>([]);
-  const [storageStayHotel, setStorageStayHotel] = useState<HotelStay | null>(null);
+  const [storageStayHotel, setStorageStayHotel] = useState<Hospedes | null>(null);
 
   function validateForm() {
-    const errors = [];
+    if (formInfo?.email === '') throw new Error('O campo E-mail é Obrigatorio');
+    if (formInfo?.cardName === '') throw new Error('O campo Nome Cartão é Obrigatorio');
+    if (formInfo?.cardValidity === '') throw new Error('O campo Validade é Obrigatorio');
+    if (formInfo?.cardCVC === '') throw new Error('O campo CVC é Obrigatorio');
+    setErrorMessage([]);
+  }
 
-    if (formInfo.name === '') errors.push('O campo nome é Obrigatorio');
-    if (formInfo.email === '') errors.push('O campo E-mail é Obrigatorio');
-    if (formInfo.cardName === '') errors.push('O campo Nome Cartão é Obrigatorio');
-    if (formInfo.cardValidity === '') errors.push('O campo Validade é Obrigatorio');
-    if (formInfo.cardCVC === '') errors.push('O campo CVC é Obrigatorio');
-    setErrorMessage(errors);
-    return errors.length === 0;
+  function handleClick() {
+    setFormInfo({
+      name: '',
+      email: '',
+      creditCard: false,
+      pix: false,
+      cardName: '',
+      cardValidity: '',
+      cardCVC: '',
+    });
   }
 
   return (
@@ -90,6 +75,7 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
         storageStayHotel,
         setStorageStayHotel,
         validateForm,
+        handleClick,
       } }
     >
       { children }

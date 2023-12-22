@@ -33,7 +33,7 @@ export function ApartmentList() {
   function handleClick(apartment: any) {
     setBedrooms((prevBedrooms) => {
       const updatedBedrooms = [...prevBedrooms, apartment];
-      saveToLocalStorage('bedrooms', updatedBedrooms);
+      saveToLocalStorage('rooms', updatedBedrooms);
       return updatedBedrooms;
     });
     message.success({

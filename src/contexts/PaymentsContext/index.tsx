@@ -1,7 +1,7 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react';
 import { message } from 'antd';
 import { Quarto } from '../../types/ApartmentListType';
-import { Hospedes } from '../../types/HospedesType';
+import { Guest } from '../../types/GuestType';
 
 type TypeForm = {
   name: string;
@@ -20,8 +20,8 @@ type PaymentsContextValue = {
   setErrorMessage: Dispatch<SetStateAction<string[]>>;
   storageBedroom: Quarto[];
   setStorageBedroom: Dispatch<SetStateAction<Quarto[]>>;
-  storageStayHotel: Hospedes | null;
-  setStorageStayHotel: Dispatch<SetStateAction<Hospedes | null>>;
+  storageStayHotel: Guest | null;
+  setStorageStayHotel: Dispatch<SetStateAction<Guest | null>>;
   validateForm: () => void;
   handleDateChange: (key: any, dateString: any) => void;
   clearGlobalState: () => void;
@@ -43,7 +43,7 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
   const [formInfo, setFormInfo] = useState<TypeForm>(initialFormInfo);
   const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [storageBedroom, setStorageBedroom] = useState<Quarto[]>([]);
-  const [storageStayHotel, setStorageStayHotel] = useState<Hospedes | null>(null);
+  const [storageStayHotel, setStorageStayHotel] = useState<Guest | null>(null);
 
   function validateForm() {
     if (formInfo?.name === '') message.warning('O campo nome é Obrigatorio');

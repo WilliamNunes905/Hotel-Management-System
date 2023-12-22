@@ -1,15 +1,15 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react';
-import { Hospedes } from '../../types/HospedesType';
+import { Guest } from '../../types/GuestType';
 
 type SearchContextValue = {
-  hotelGuests: Hospedes;
-  setHotelGuests: Dispatch<SetStateAction<Hospedes>>;
+  hotelGuests: Guest;
+  setHotelGuests: Dispatch<SetStateAction<Guest>>;
 };
 
 export const SearchContext = createContext({} as SearchContextValue);
 
 export function SearchProvider({ children } : { children: React.ReactNode }) {
-  const [hotelGuests, setHotelGuests] = useState<Hospedes>({
+  const [hotelGuests, setHotelGuests] = useState<Guest>({
     adults: '1',
     child: '1',
     entry: '',

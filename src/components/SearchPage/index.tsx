@@ -3,7 +3,7 @@ import { DatePicker, Space, Select } from 'antd';
 import './SearchPage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { Hospedes } from '../../types/HospedesType';
+import { Guest } from '../../types/GuestType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { SearchContext } from '../../contexts/SearchContext';
 
@@ -12,7 +12,7 @@ export function SearchPage() {
 
   const dateFormatList = ['DD/MM/YYYY'];
 
-  const handleHotelGuests = (key: keyof Hospedes, value: string) => {
+  const handleHotelGuests = (key: keyof Guest, value: string) => {
     setHotelGuests({ ...hotelGuests, [key]: value });
   };
 

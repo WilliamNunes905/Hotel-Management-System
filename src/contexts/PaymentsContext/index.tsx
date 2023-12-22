@@ -1,6 +1,5 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react';
 import { message } from 'antd';
-import { Quarto } from '../../types/ApartmentListType';
 import { Guest } from '../../types/GuestType';
 
 type TypeForm = {
@@ -16,8 +15,6 @@ type TypeForm = {
 type PaymentsContextValue = {
   formInfo: TypeForm;
   setFormInfo: Dispatch<SetStateAction<TypeForm>>;
-  storageBedroom: Quarto[];
-  setStorageBedroom: Dispatch<SetStateAction<Quarto[]>>;
   storageStayHotel: Guest | null;
   setStorageStayHotel: Dispatch<SetStateAction<Guest | null>>;
   validateForm: () => void;
@@ -39,7 +36,6 @@ export const PaymentsContext = createContext({} as PaymentsContextValue);
 
 export function PaymentsProvider({ children } : { children: React.ReactNode }) {
   const [formInfo, setFormInfo] = useState<TypeForm>(initialFormInfo);
-  const [storageBedroom, setStorageBedroom] = useState<Quarto[]>([]);
   const [storageStayHotel, setStorageStayHotel] = useState<Guest | null>(null);
 
   function validateForm() {
@@ -82,8 +78,6 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
       value={ {
         formInfo,
         setFormInfo,
-        storageBedroom,
-        setStorageBedroom,
         storageStayHotel,
         setStorageStayHotel,
         validateForm,

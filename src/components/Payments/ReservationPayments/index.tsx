@@ -4,28 +4,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { PaymentsContext } from '../../../contexts/PaymentsContext';
 import '../Payments.scss';
+import { ApartmentContext } from '../../../contexts/ApartmentContext';
 
 export function ReservationPayments() {
   const {
-    storageBedroom,
-    setStorageBedroom,
     storageStayHotel,
     setStorageStayHotel,
     clearGlobalState,
   } = useContext(PaymentsContext);
 
+  const { bedrooms, setBedrooms } = useContext(ApartmentContext);
+
   const [countDailyList, setCountDailyList] = useState<Record<number, number>>({});
 
   useEffect(() => {
-    const bedrooms = localStorage.getItem('rooms');
-    const stayHotel = localStorage.getItem('stay_Hotel');
-    if (bedrooms)setStorageBedroom(JSON.parse(bedrooms));
+    const stayHotel = localStorage.getItem('reserve');
     if (stayHotel) setStorageStayHotel(JSON.parse(stayHotel));
-  }, [setStorageBedroom, setStorageStayHotel]);
+  }, [setStorageStayHotel]);
 
   function handleDeleteBedroom(id: number) {
-    const updatedBedrooms = storageBedroom.filter((bedroom) => bedroom.id !== id);
-    setStorageBedroom(updatedBedrooms);
+    const updatedBedrooms = bedrooms.filter((bedroom) => bedroom.id !== id);
+    setBedrooms(updatedBedrooms);
     localStorage.setItem('rooms', JSON.stringify(updatedBedrooms));
   }
 
@@ -54,7 +53,7 @@ export function ReservationPayments() {
         <div className="shopping-Cart">
           <div className="content">
             {
-            storageBedroom.map((bedroom, index) => (
+            bedrooms.map((bedroom, index) => (
               <div className="details" key={ index }>
                 <div className="nameAndType">
                   <h2 className="master">{ bedroom.nome }</h2>
@@ -121,7 +120,7 @@ export function ReservationPayments() {
         <h2>
           R$
           {' '}
-          {storageBedroom.reduce((acc, curr) => acc + (countDailyList[curr.id] || 1)
+          {bedrooms.reduce((acc, curr) => acc + (countDailyList[curr.id] || 1)
             * curr.preco, 0).toFixed(2)}
         </h2>
       </div>

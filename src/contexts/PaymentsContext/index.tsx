@@ -1,4 +1,5 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react';
+import { message } from 'antd';
 import { Quarto } from '../../types/ApartmentListType';
 import { Hospedes } from '../../types/HospedesType';
 
@@ -22,7 +23,8 @@ type PaymentsContextValue = {
   storageStayHotel: Hospedes | null;
   setStorageStayHotel: Dispatch<SetStateAction<Hospedes | null>>;
   validateForm: () => void;
-  handleClick: () => void;
+  handleDateChange: (key: any, dateString: any) => void;
+  clearGlobalState: () => void;
 };
 
 const initialFormInfo = {
@@ -44,14 +46,27 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
   const [storageStayHotel, setStorageStayHotel] = useState<Hospedes | null>(null);
 
   function validateForm() {
-    if (formInfo?.email === '') throw new Error('O campo E-mail é Obrigatorio');
-    if (formInfo?.cardName === '') throw new Error('O campo Nome Cartão é Obrigatorio');
-    if (formInfo?.cardValidity === '') throw new Error('O campo Validade é Obrigatorio');
-    if (formInfo?.cardCVC === '') throw new Error('O campo CVC é Obrigatorio');
-    setErrorMessage([]);
+    if (formInfo?.name === '') message.warning('O campo nome é Obrigatorio');
+    if (formInfo?.email === '') message.warning('O campo E-mail é Obrigatorio');
+    if (formInfo?.cardName === '') {
+      message.warning('O campo Nome do Cartão é Obrigatorio');
+    }
+    if (formInfo?.cardValidity === '') message.warning('O campo Validade é Obrigatorio');
+    if (formInfo?.cardCVC === '') message.warning('O campo CVC é Obrigatorio');
+    if (errorMessage.length === 0) {
+      message.success('Reserva efetuada com Sucesso');
+    }
   }
 
-  function handleClick() {
+  const handleDateChange = (key: any, dateString: any) => {
+    setFormInfo((prevFormInfo) => ({
+      ...prevFormInfo,
+      [key]: dateString,
+    }));
+  };
+
+  function clearGlobalState() {
+    validateForm();
     setFormInfo({
       name: '',
       email: '',
@@ -61,6 +76,7 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
       cardValidity: '',
       cardCVC: '',
     });
+    localStorage.clear();
   }
 
   return (
@@ -75,7 +91,8 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
         storageStayHotel,
         setStorageStayHotel,
         validateForm,
-        handleClick,
+        handleDateChange,
+        clearGlobalState,
       } }
     >
       { children }

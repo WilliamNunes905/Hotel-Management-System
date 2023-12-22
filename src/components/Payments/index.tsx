@@ -15,13 +15,14 @@ export function Payments() {
     setStorageBedroom,
     storageStayHotel,
     setStorageStayHotel,
-    handleClick,
+    handleDateChange,
+    clearGlobalState,
   } = useContext(PaymentsContext);
 
   const [countDailyList, setCountDailyList] = useState<Record<number, number>>({});
 
   useEffect(() => {
-    const bedrooms = localStorage.getItem('bedrooms');
+    const bedrooms = localStorage.getItem('rooms');
     const stayHotel = localStorage.getItem('stay_Hotel');
     if (bedrooms)setStorageBedroom(JSON.parse(bedrooms));
     if (stayHotel) setStorageStayHotel(JSON.parse(stayHotel));
@@ -39,17 +40,10 @@ export function Payments() {
     localStorage.setItem('Form', JSON.stringify(formInfo));
   }
 
-  const handleDateChange = (key: any, dateString: any) => {
-    setFormInfo((prevFormInfo) => ({
-      ...prevFormInfo,
-      [key]: dateString,
-    }));
-  };
-
   function handleDeleteBedroom(id: number) {
     const updatedBedrooms = storageBedroom.filter((bedroom) => bedroom.id !== id);
     setStorageBedroom(updatedBedrooms);
-    localStorage.setItem('bedrooms', JSON.stringify(updatedBedrooms));
+    localStorage.setItem('rooms', JSON.stringify(updatedBedrooms));
   }
 
   function handleIncrement(id: number) {
@@ -229,7 +223,7 @@ export function Payments() {
           <button className="button-Cancel">Cancelar</button>
           <button
             className="button-payment"
-            onClick={ () => handleClick() }
+            onClick={ () => clearGlobalState() }
           >
             <FontAwesomeIcon icon={ faCheck } />
             Confirmar pagamento

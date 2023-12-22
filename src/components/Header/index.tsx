@@ -22,11 +22,13 @@ export function Header() {
   return (
     <div className="header-container">
       <div className="logo-container">
-        <img
-          src={ logoSvg }
-          alt="Hotel Silbeck"
-          className="logo-image"
-        />
+        <a href="/">
+          <img
+            src={ logoSvg }
+            alt="Hotel Silbeck"
+            className="logo-image"
+          />
+        </a>
       </div>
       <NavBar />
       <div className="selects-container">

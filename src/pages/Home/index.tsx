@@ -1,12 +1,13 @@
-// import { Header } from '../../components/Header';
-// import { Footer } from '../../components/Footer';
+import { SearchPage } from '../../components/SearchPage';
+import { ApartmentList } from '../../components/ApartmentList';
+import { Feedbacks } from '../../components/Feedbacks';
 
 function Home() {
   return (
     <div>
-      <h1>Home</h1>
-      {/* <Header />
-      <Footer /> */}
+      <SearchPage />
+      <ApartmentList />
+      <Feedbacks />
     </div>
   );
 }

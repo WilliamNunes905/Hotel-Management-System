@@ -1,0 +1,119 @@
+.container-search {
+  align-items: flex-end;
+  background: #182558;
+  border-radius: var(--components-input-component-padding-block-sm, 0px);
+  display: flex;
+  padding: 32px 52px;
+  justify-content: center;
+  gap: 64px;
+
+  .container-data {
+  display: flex;
+  padding: var(--components-input-component-padding-block-sm, 0px);
+  align-items: center;
+  gap: 24px;
+  }
+
+  .container-estadia {
+  display: flex;
+  padding: var(--components-input-component-padding-block-sm, 0px);
+  align-items: center;
+  gap: 24px;
+  color: var(--neutral-color-white-bg, #FFF);
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  }
+
+  .date-entry {
+  display: flex;
+  padding: var(--components-input-component-padding-block-sm, 0px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--neutral-color-bg, #F5F5F5);
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  }
+
+  .date-exit {
+    display: flex;
+    padding: var(--components-input-component-padding-block-sm, 0px);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    color: var(--neutral-color-bg, #F5F5F5);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  
+  .datePicker {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  padding: var(--components-input-component-padding-block-sm, 0px) var(--components-date-picker-global-control-padding-horizontal, 12px);
+  gap: var(--components-date-picker-global-margin-xxs, 4px);
+  width: 256px;
+  }
+
+
+  .container-hospede {
+    display: flex;
+    padding: var(--components-input-component-padding-block-sm, 0px);
+    align-items: center;
+    gap: 24px;
+    color: var(--neutral-color-white-bg, #FFF);
+    font-family: Inter;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .select-style {
+  display: flex;
+  width: 256px;
+  height: 50px;
+  padding: var(--components-input-component-padding-block-sm, 0px) var(--components-date-picker-global-control-padding-horizontal, 0px);
+  align-items: center;
+  gap: var(--components-date-picker-global-margin-xxs, 4px);
+  border-radius: 8px;
+  border: 1px solid var(--components-date-picker-global-color-border, #D9D9D9);
+  background: var(--components-date-picker-global-color-bg-container, #FFF);
+  }
+
+  .container-button {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  $button-padding: 13px 25px 14px 25px;
+  $button-border-radius: 8px;
+
+  .button-style {
+    cursor: pointer;
+    display: flex;
+    padding: $button-padding;
+    align-items: center;
+    background: var(--brand-color-color-primary-text-hover, #486CCF);
+    gap: 8px;
+    border-radius: var(--components-button-global-border-radius-lg, $button-border-radius);
+    border: 1px solid #182558;
+    color: white;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+  }
+}
+  
+}

@@ -1,0 +1,328 @@
+.container-payments {
+  display: flex;
+  padding: 48px 80px;
+  align-items: flex-start;
+  gap: 48px;
+  background: #F5F5F5;
+  font-family: Inter;
+
+    h2 {
+      color: var(--Neutral-Color-Neutral-Color-Text, #333);
+      font-family: Inter;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 28px;
+    }
+
+    input {
+      display: flex;
+      height: 56px;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px) var(--Components-DatePicker-Global-controlPaddingHorizontal, 12px);
+      border-radius: 8px;
+      border: 2px solid var(--Components-DatePicker-Global-colorBorder, #D9D9D9);
+      background: var(--Components-DatePicker-Global-colorBgContainer, #FFF);
+      align-items: center;
+      gap: var(--Components-DatePicker-Global-marginXXS, 4px);
+      align-self: stretch;
+    }
+
+      .contentWrapper {
+        display: flex;
+        padding-top: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+        flex: 1 0 0;
+
+      .contactInformation {
+        align-self: stretch;
+        align-items: flex-start;
+        display: flex;
+        padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+        border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .frame-10 {
+        align-self: stretch;
+        display: flex;
+        padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+        border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        color: var(--Neutral-Color-colorText, #4B4B4B);
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+      }
+  }
+
+.payment {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+    flex-direction: column;
+    gap: 24px;
+
+      .RadioButtons {
+        display: flex;
+        padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+        align-items: center;
+        gap: var(--Components-Button-Component-onlyIconSize, 10px);
+        border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+      }
+
+      .frame-135 {
+        display: flex;
+        padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+        align-items: flex-start;
+        gap: 24px;
+        align-self: stretch;
+
+        .frame-13 {
+          display: flex;
+          padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+          border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          flex: 1 0 0;
+        }
+
+        .frame-14 {
+          display: flex;
+          padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+          border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          flex: 1 0 0;
+        }
+      }
+
+      .datePicker {
+        display: flex;
+        height: 56px;
+        padding: var(--Components-Input-Component-paddingBlockSM, 0px) var(--Components-DatePicker-Global-controlPaddingHorizontal, 12px);
+        align-items: center;
+        gap: var(--Components-DatePicker-Global-marginXXS, 4px);
+        align-self: stretch;
+        border-radius: 8px;
+        border: 2px solid var(--Components-DatePicker-Global-colorBorder, #D9D9D9);
+      background: var(--Components-DatePicker-Global-colorBgContainer, #FFF);
+      }
+  }
+
+.contentTotal {
+  align-items: flex-start;
+  display: flex;
+  border-radius: 8px;
+  background: var(--colorBgContainer, #FFF);
+  padding: var(--Components-Avatar-Component-containerSize, 32px);
+  flex-direction: column;
+  gap: var(--Components-Avatar-Component-containerSize, 32px);
+  flex: 1 0 0;
+
+    .contentWrapper-Total {
+      display: flex;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      align-self: stretch;
+    }
+
+    .shopping-Cart {
+      display: flex;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+      align-items: flex-start;
+      gap: var(--Components-Button-Component-onlyIconSize, 16px);
+      align-self: stretch;
+    }
+
+    .content {
+      display: flex;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      flex: 1 0 0;
+
+      .controler {
+        align-items: flex-end;
+        background: white;
+        display: flex;
+        padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+        border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+        justify-content: flex-end;
+        gap: 121px;
+        align-self: stretch;
+      }
+    }
+
+    .details {
+      display: flex;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+      align-items: flex-start;
+      gap: var(--Components-Input-Component-paddingBlockSM, 0px);
+      align-self: stretch;
+    }
+
+    .nameAndType {
+      display: flex;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      flex: 1 0 0;
+      border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    }
+
+    .frame-138 {
+      display: flex;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      flex-direction: column;
+      align-items: flex-end;
+      gap: var(--Components-Button-Component-onlyIconSize, 16px);
+     border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+
+     .moneyFrame {
+      color: var(--Neutral-Color-Neutral-Color-Text, #333);
+      text-align: right;
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+     }
+    }
+
+    .buttonContent {
+      background-color: white;
+      display: flex;
+      padding: 5px var(--Components-Button-Component-onlyIconSize, 12px);
+      justify-content: center;
+      align-items: center;
+      gap: var(--Components-Button-Component-onlyIconSize, 16px);
+      border-radius: var(--Components-Button-Global-borderRadiusLG, 8px);
+      border: 2px solid var(--Neutral-Color-colorText, #4B4B4B);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px;
+
+      .buttonStyle {
+        background-color: white;
+        border: none;
+        text-align: center;
+        font-family: Inter;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+        width: 10px;
+      }
+    }
+  }
+
+  .divider {
+    display: flex;
+    clear: both;
+    width: 100%;
+    min-width: 100%;
+    margin: 4px;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+
+  .moneyFrame {
+    display: flex;
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+
+  .buttonDelete {
+    cursor: pointer;
+    display: flex;
+    color: var(--Error-Color-Error-Color, #D54343);
+    font-family: Font Awesome 6 Pro;
+    background: white;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    align-items: center;
+    gap: 4px;
+    border: none;
+  }
+
+  .button-container {
+    align-items: flex-start;
+    display: flex;
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    gap: var(--Components-Avatar-Component-containerSize, 32px);
+    align-self: stretch;
+
+    .button-Cancel {
+      align-items: center;
+      background: white;
+      display: flex;
+      padding: 8px 24px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      flex: 1 0 0;
+      border-radius: var(--Components-Button-Global-borderRadiusLG, 8px);
+      border: 2px solid var(--Neutral-Color-colorTextTertiary, #A3A3A3);
+      box-shadow: 0px 2px 0px 0px rgba(5, 145, 255, 0.10);
+      color: var(--Neutral-Color-colorTextTertiary, #A3A3A3);
+      font-family: Inter;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+
+    }
+    .button-Cancel:hover {
+      background: white;
+      color: var(--Neutral-Color-colorTextTertiary, black);
+      border: 2px solid var(--Neutral-Color-colorTextTertiary, black);
+      transition: 0.3s;
+    }
+    
+    .button-payment {
+      display: flex;
+      background: var(--Sucess-Color-colorSuccessActive, #2d7a11);
+      box-shadow: 0px 2px 0px 0px rgba(5, 145, 255, 0.10);
+      border-radius: var(--Components-Button-Global-borderRadiusLG, 8px);
+      height: var(--Components-Button-Global-controlHeightLG, 40px);
+      padding: 8px 24px;
+      width: 504px;
+      justify-content: center;
+      align-items: center;
+      gap: var(--Components-Button-Global-marginXS, 8px);
+      color: var(--Neutral-Color-White-BG, #FFF);
+      font-family: Font Awesome 6 Pro;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    }
+  }
+}

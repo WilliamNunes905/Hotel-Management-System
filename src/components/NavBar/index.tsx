@@ -1,19 +1,18 @@
-import { NavLink } from 'react-router-dom';
 import './NavBar.scss';
 
 export function NavBar() {
   return (
     <div className="container">
       <nav>
-        <NavLink to="/messages">
+        <a href="/">
           Menu
-        </NavLink>
-        <NavLink to="/messages">
+        </a>
+        <a href="/#quartos-section">
           Quartos
-        </NavLink>
-        <NavLink to="/messages">
+        </a>
+        <a href="/#feedback">
           Avaliações
-        </NavLink>
+        </a>
       </nav>
     </div>
   );

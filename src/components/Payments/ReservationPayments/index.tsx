@@ -37,10 +37,14 @@ export function ReservationPayments() {
   }
 
   function handleDecrement(id: number) {
-    setCountDailyList((prevCountDailyList) => ({
-      ...prevCountDailyList,
-      [id]: Math.max((prevCountDailyList[id] || 0) - 1),
-    }));
+    setCountDailyList((prevCountDailyList) => {
+      const currentValue = prevCountDailyList[id] || 0;
+      const newValue = Math.max(currentValue - 1, 0);
+      return {
+        ...prevCountDailyList,
+        [id]: newValue,
+      };
+    });
   }
 
   return (
@@ -74,11 +78,7 @@ export function ReservationPayments() {
                   <h3 className="moneyFrame">
                     R$
                     {' '}
-                    {storageBedroom.reduce(
-                      (acc, curr) => acc + (countDailyList[curr.id] || 1)
-                      * curr.preco,
-                      0,
-                    ).toFixed(2)}
+                    { bedroom.preco.toFixed(2)}
                   </h3>
                   <div className="buttonContent">
                     <button

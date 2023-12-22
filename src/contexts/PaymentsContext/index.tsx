@@ -16,8 +16,6 @@ type TypeForm = {
 type PaymentsContextValue = {
   formInfo: TypeForm;
   setFormInfo: Dispatch<SetStateAction<TypeForm>>;
-  errorMessage: string[];
-  setErrorMessage: Dispatch<SetStateAction<string[]>>;
   storageBedroom: Quarto[];
   setStorageBedroom: Dispatch<SetStateAction<Quarto[]>>;
   storageStayHotel: Guest | null;
@@ -41,21 +39,19 @@ export const PaymentsContext = createContext({} as PaymentsContextValue);
 
 export function PaymentsProvider({ children } : { children: React.ReactNode }) {
   const [formInfo, setFormInfo] = useState<TypeForm>(initialFormInfo);
-  const [errorMessage, setErrorMessage] = useState<string[]>([]);
   const [storageBedroom, setStorageBedroom] = useState<Quarto[]>([]);
   const [storageStayHotel, setStorageStayHotel] = useState<Guest | null>(null);
+  console.log(formInfo);
 
   function validateForm() {
-    if (formInfo?.name === '') message.warning('O campo nome é Obrigatorio');
-    if (formInfo?.email === '') message.warning('O campo E-mail é Obrigatorio');
-    if (formInfo?.cardName === '') {
-      message.warning('O campo Nome do Cartão é Obrigatorio');
-    }
-    if (formInfo?.cardValidity === '') message.warning('O campo Validade é Obrigatorio');
-    if (formInfo?.cardCVC === '') message.warning('O campo CVC é Obrigatorio');
-    if (errorMessage.length === 0) {
-      message.success('Reserva efetuada com Sucesso');
-    }
+    const errors = [];
+
+    if (formInfo?.name === '') errors.push('O campo nome é Obrigatório');
+    if (formInfo?.email === '') errors.push('O campo E-mail é Obrigatório');
+    if (formInfo?.cardName === '') errors.push('O campo Nome do Cartão é Obrigatório');
+    if (formInfo?.cardValidity === '') errors.push('O campo Validade é Obrigatório');
+    if (formInfo?.cardCVC === '') errors.push('O campo CVC é Obrigatório');
+    return errors.length === 0;
   }
 
   const handleDateChange = (key: any, dateString: any) => {
@@ -64,19 +60,22 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
       [key]: dateString,
     }));
   };
+  console.log(validateForm.length);
 
   function clearGlobalState() {
-    validateForm();
-    setFormInfo({
-      name: '',
-      email: '',
-      creditCard: false,
-      pix: false,
-      cardName: '',
-      cardValidity: '',
-      cardCVC: '',
-    });
-    localStorage.clear();
+    if (validateForm()) {
+      setFormInfo({
+        name: '',
+        email: '',
+        creditCard: false,
+        pix: false,
+        cardName: '',
+        cardValidity: '',
+        cardCVC: '',
+      });
+      message.success('Reserva efetuada com Sucesso');
+      localStorage.clear();
+    }
   }
 
   return (
@@ -84,8 +83,6 @@ export function PaymentsProvider({ children } : { children: React.ReactNode }) {
       value={ {
         formInfo,
         setFormInfo,
-        errorMessage,
-        setErrorMessage,
         storageBedroom,
         setStorageBedroom,
         storageStayHotel,

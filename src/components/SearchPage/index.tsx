@@ -3,31 +3,18 @@ import { DatePicker, Space, Select } from 'antd';
 import './SearchPage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { Hospedes, HotelStay } from '../../types/HospedesType';
+import { Hospedes } from '../../types/HospedesType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { SearchContext } from '../../contexts/SearchContext';
 
 export function SearchPage() {
-  const {
-    hotelGuests,
-    setHotelGuests,
-    hotelStay,
-    setHotelStay } = useContext(SearchContext);
+  const { hotelGuests, setHotelGuests } = useContext(SearchContext);
 
   const dateFormatList = ['DD/MM/YYYY'];
 
   const handleHotelGuests = (key: keyof Hospedes, value: string) => {
     setHotelGuests({ ...hotelGuests, [key]: value });
   };
-
-  function handleHotelStay(key: keyof HotelStay, dateString: string) {
-    setHotelStay({ ...hotelStay, [key]: dateString });
-  }
-
-  function searchButton() {
-    saveToLocalStorage('Guests', hotelGuests);
-    saveToLocalStorage('stay_Hotel', hotelStay);
-  }
 
   return (
     <div className="container-search">
@@ -44,7 +31,7 @@ export function SearchPage() {
               className="datePicker"
               placeholder="Selecione a data"
               format={ dateFormatList }
-              onChange={ (_date, dateString) => handleHotelStay('entry', dateString) }
+              onChange={ (_date, dateString) => handleHotelGuests('entry', dateString) }
             />
           </Space>
         </div>
@@ -56,7 +43,7 @@ export function SearchPage() {
               className="datePicker"
               placeholder="Selecione a data"
               format={ dateFormatList }
-              onChange={ (_date, dateString) => handleHotelStay('exit', dateString) }
+              onChange={ (_date, dateString) => handleHotelGuests('exit', dateString) }
             />
           </Space>
         </div>
@@ -104,7 +91,7 @@ export function SearchPage() {
       <div className="container-button">
         <button
           className="button-style"
-          onClick={ searchButton }
+          onClick={ () => saveToLocalStorage('reserve', hotelGuests) }
         >
           <FontAwesomeIcon icon={ faMagnifyingGlass } />
           Pesquisar

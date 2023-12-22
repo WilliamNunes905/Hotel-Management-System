@@ -6,7 +6,7 @@ import {
   faMugHot,
   faTv,
   faUser, faWifi } from '@fortawesome/free-solid-svg-icons';
-import { Rate } from 'antd';
+import { Rate, message } from 'antd';
 import { useContext, useEffect } from 'react';
 import { dataApartmentList } from '../../services/dataApartmentList';
 import { Quarto } from '../../types/ApartmentListType';
@@ -35,6 +35,10 @@ export function ApartmentList() {
       const updatedBedrooms = [...prevBedrooms, apartment];
       saveToLocalStorage('bedrooms', updatedBedrooms);
       return updatedBedrooms;
+    });
+    message.success({
+      content: 'Adicionado com Sucesso',
+      duration: 3,
     });
   }
 

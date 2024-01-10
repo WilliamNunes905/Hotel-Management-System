@@ -20,7 +20,6 @@ export function Footer() {
 
   return (
     <div className="footer-container">
-
       <div className="frame-128">
         <div className="frame-131">
           <div>
@@ -53,10 +52,8 @@ export function Footer() {
           </div>
         </div>
       </div>
-
       <div className="container-about">
         <p>Nos encontre nas redes sociais</p>
-
         <div className="frame-132">
           <Link to={ footerData?.instagram || '/Home' } className="socialMedia">
             <FontAwesomeIcon icon={ faInstagram } />
@@ -64,11 +61,10 @@ export function Footer() {
           <Link to={ footerData?.facebook || '/Home' } className="socialMedia">
             <FontAwesomeIcon icon={ faFacebook } />
           </Link>
-          <Link to={ footerData?.twitter || '/default-url' } className="socialMedia">
+          <Link to={ footerData?.twitter || '/Home' } className="socialMedia">
             <FontAwesomeIcon icon={ faTwitter } />
           </Link>
         </div>
-
         <div className="container-130">
           <p>
             Assine nossa newsletter, toda semana um conteúdo novo
@@ -89,9 +85,7 @@ export function Footer() {
             Enviar
           </button>
         </div>
-
       </div>
-
     </div>
   );
 }

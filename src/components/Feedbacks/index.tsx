@@ -1,15 +1,19 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Rate } from 'antd';
-import { MouseEventHandler, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { getFeedbacksData } from '../../services/FeedbacksData';
-import { FeedbacksType } from '../../types/FeedbacksType';
+import { feedbacksContext } from '../../contexts/FeedbacksContext';
 import iconSvg from '../../assets/UserIcon.svg';
 import './Feedbacks.scss';
 
 export function Feedbacks() {
-  const [feedbackData, setFeedbackData] = useState<FeedbacksType[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const {
+    carouselRef,
+    currentIndex,
+    feedbackData,
+    setCurrentIndex,
+    setFeedbackData } = useContext(feedbacksContext);
 
   useEffect(() => {
     async function fetchFeedbacks() {
@@ -19,29 +23,33 @@ export function Feedbacks() {
     fetchFeedbacks();
   }, []);
 
-  const carouselRef = useRef<HTMLDivElement>(null);
-
-  const handleLeftClick: MouseEventHandler<SVGSVGElement> = (e) => {
+  function handleLeftClick(e: React.MouseEvent<SVGSVGElement, MouseEvent>) {
     e.preventDefault();
     const newIndex = currentIndex === 0 ? feedbackData.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-    scrollCarousel(newIndex);
-  };
+    if (newIndex >= 0 && newIndex <= 5) {
+      setCurrentIndex(newIndex);
+      scrollCarousel(newIndex);
+    } else {
+      setCurrentIndex(0);
+      scrollCarousel(0);
+    }
+  }
 
-  const handleRightClick: MouseEventHandler<SVGSVGElement> = (e) => {
+  function handleRightClick(e: React.MouseEvent<SVGSVGElement, MouseEvent>) {
     e.preventDefault();
     const newIndex = currentIndex === feedbackData.length - 1 ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-    scrollCarousel(newIndex);
-  };
+    if (newIndex >= 0 && newIndex <= 5) {
+      setCurrentIndex(newIndex);
+      scrollCarousel(newIndex);
+    }
+  }
 
-  const scrollCarousel = (index: number) => {
+  function scrollCarousel(index: number) {
     if (carouselRef.current) {
       const itemWidth = carouselRef.current.offsetWidth;
       carouselRef.current.scrollLeft = itemWidth * index * 2;
     }
-  };
-
+  }
   const visibleFeedbacks = feedbackData.slice(currentIndex, currentIndex + 2);
 
   return (
@@ -54,7 +62,7 @@ export function Feedbacks() {
           icon={ faChevronLeft }
           style={ { color: '#4d525c' } }
           className="chevron-style"
-          onClick={ handleLeftClick }
+          onClick={ (e) => handleLeftClick(e) }
         />
         <div className="container-carousel" ref={ carouselRef }>
           {
@@ -79,7 +87,7 @@ export function Feedbacks() {
           icon={ faChevronRight }
           style={ { color: '#4d525c' } }
           className="chevron-style"
-          onClick={ handleRightClick }
+          onClick={ (e) => handleRightClick(e) }
         />
       </div>
       <div className="container-space">

@@ -3,24 +3,15 @@
   background: #F5F5F5;
   border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
   display: flex;
-  padding: 55px 48px;
+  padding: 50px 30px;
   flex-direction: column;
-  gap: 48px;
+  gap: 45px;
 
-  .frame-113 {
+  .title-Assessments {
     align-items: flex-end;
     display: flex;
     border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
     padding: var(--Components-Input-Component-paddingBlockSM, 0px);
-
-    .frame-115 {
-      display: flex;
-      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 48px;
-    }
 
     .title-style {
       color: #182558;
@@ -32,23 +23,44 @@
     }
   }
 
-  .frame-110 {
-    align-items: center;
+  .container-carousel {
     display: flex;
-    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
     padding: var(--Components-Input-Component-paddingBlockSM, 0px);
-    justify-content: center;
-    gap: var(--Components-Avatar-Component-containerSize, 25px);
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    align-items: center;
+    gap: 30px;
+  }
 
-    .frame-139 {
+    .container {
+      max-width: 100vw;
+      padding: 0;
+
+    }
+    .container .container-carousel {
       display: flex;
-      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
-      border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
-      align-items: center;
-      gap: 60px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
     }
 
-    .frame-109 {
+    .carousel-style {
+      display: flex;
+      width: 740px;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      align-items: center;
+      gap: 24px;
+    }
+    
+    .card-feedback {
+      align-items: flex-start;
+      display: flex;
+      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--Components-Button-Component-onlyIconSize, 16px);
+      flex: 1 0 0;
+    }
+
+    .Assessment {
       display: flex;
       padding: var(--Components-Input-Component-paddingBlockSM, 0px);
       border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
@@ -58,23 +70,6 @@
       align-self: stretch;
     }
 
-    .frame-107 {
-      display: flex;
-      width: 789px;
-      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
-      align-items: center;
-      gap: 24px;
-    }
-
-    .frame-108 {
-      align-items: flex-start;
-      display: flex;
-      padding: var(--Components-Input-Component-paddingBlockSM, 0px);
-      flex-direction: column;
-      justify-content: center;
-      gap: var(--Components-Button-Component-onlyIconSize, 16px);
-      flex: 1 0 0;
-    }
 
     .icon-user {
       display: flex;
@@ -107,7 +102,7 @@
     }
   }
 
-  .frame-111 {
+  .container-space {
     display: flex;
     padding: var(--Components-Input-Component-paddingBlockSM, 0px);
     border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
@@ -136,4 +131,3 @@
     font-weight: 400;
     line-height: normal;
   }
-}

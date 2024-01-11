@@ -34,7 +34,7 @@ const initialFormInfo = {
 
 export const PaymentsContext = createContext({} as PaymentsContextValue);
 
-export function PaymentsProvider({ children } : { children: React.ReactNode }) {
+export function PaymentsProvider({ children }: { children: React.ReactNode }) {
   const [formInfo, setFormInfo] = useState<TypeForm>(initialFormInfo);
   const [storageStayHotel, setStorageStayHotel] = useState<Guest | null>(null);
 

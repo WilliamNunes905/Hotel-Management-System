@@ -23,6 +23,14 @@
     }
   }
 
+  .container-carousel {
+    display: flex;
+    padding: var(--Components-Input-Component-paddingBlockSM, 0px);
+    border-radius: var(--Components-Input-Component-paddingBlockSM, 0px);
+    align-items: center;
+    gap: 30px;
+  }
+
     .container {
       max-width: 100vw;
       padding: 0;

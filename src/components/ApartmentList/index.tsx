@@ -7,12 +7,15 @@ import {
   faTv,
   faUser, faWifi } from '@fortawesome/free-solid-svg-icons';
 import { Rate, message } from 'antd';
+import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
 import { useContext, useEffect } from 'react';
 import { dataApartmentList } from '../../services/dataApartmentList';
 import { Quarto } from '../../types/ApartmentListType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
+
+library.add(faBellConcierge, faHotTubPerson, faMugHot, faTv, faUser, faWifi);
 
 export function ApartmentList() {
   const {
@@ -93,31 +96,17 @@ export function ApartmentList() {
                       </p>
                     </div>
                     <div className="frame-95">
-                      <FontAwesomeIcon
-                        className="icon-style-wifi"
-                        icon={ faWifi }
-                        style={ { color: '#486ccf' } }
-                      />
-                      <FontAwesomeIcon
-                        className="icon-style-bell"
-                        icon={ faBellConcierge }
-                        style={ { color: '#486ccf' } }
-                      />
-                      <FontAwesomeIcon
-                        className="icon-style-coffee"
-                        icon={ faMugHot }
-                        style={ { color: '#486ccf' } }
-                      />
-                      <FontAwesomeIcon
-                        className="icon-style-tv"
-                        icon={ faTv }
-                        style={ { color: '#486ccf' } }
-                      />
-                      <FontAwesomeIcon
-                        className="icon-style-hotTub"
-                        icon={ faHotTubPerson }
-                        style={ { color: '#486ccf' } }
-                      />
+                      {
+                        apartment.caracteristicas.map((items) => (
+                          <div key={ items.id }>
+                            <FontAwesomeIcon
+                              icon={ items.icone as IconProp }
+                              className="icon-style"
+                              style={ { color: '#486ccf' } }
+                            />
+                          </div>
+                        ))
+                      }
                     </div>
                   </div>
                   <div className="frame-101">

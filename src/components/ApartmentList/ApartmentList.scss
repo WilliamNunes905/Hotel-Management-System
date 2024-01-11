@@ -178,6 +178,8 @@
     }
     
     .description {
+      width: 485px;
+      height: 250px;
       max-height: 250px;
 
     .width-description-1 {
@@ -194,7 +196,7 @@
     }
     .width-description-2 {
       align-self: stretch;
-      margin: 10px;
+      margin: 10px 5px 10px;
       max-width: 500px;
       color: var(--Neutral-Color-colorText, #4B4B4B);
       font-family: Inter;
@@ -206,15 +208,15 @@
     }
     .width-description-3 {
       align-self: stretch;
-      max-width: 500px;
       margin: 10px 5px;
+      max-width: 500px;
       color: var(--Neutral-Color-colorText, #4B4B4B);
       font-family: Inter;
-      font-size: 20px;
+      font-size: 25px;
       font-style: normal;
       font-weight: 400;
       text-align: justify;
-      line-height: 22px;
+      line-height: 28px;
     }
   }
   

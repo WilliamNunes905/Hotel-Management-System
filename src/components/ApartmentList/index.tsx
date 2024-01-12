@@ -10,7 +10,7 @@ import { Rate, message } from 'antd';
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
 import { useContext, useEffect } from 'react';
 import { dataApartmentList } from '../../services/dataApartmentList';
-import { Quarto } from '../../types/ApartmentListType';
+import { Rooms } from '../../types/ApartmentListType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
@@ -46,36 +46,34 @@ export function ApartmentList() {
   }
 
   return (
-    <div className="frame-28">
-      <div className="frame-24" id="quartos-section">
-        <div className="frame-26">
-          <div className="frame-106">
+    <div className="container-global">
+      <div className="container-section" id="quartos-section">
+        <div className="quartos-section">
+          <div className="container-text">
             <h1 className="h1-quartos">Quartos</h1>
             <p className="textInform">
               Todos os nossos tipos de quartos incluem café da manhã
             </p>
           </div>
-          <div className="frame-22">
-            {apartmentList?.map((apartment: Quarto) => (
-              <div key={ apartment.id } className="frame-21">
-                <div className="group-91">
-                  <img
-                    src={ apartment.img }
-                    alt={ apartment.nome }
-                    className="image-style"
-                  />
-                </div>
-                <div className="frame-102">
-                  <div className="frame-99">
+          <div className="container-card">
+            {apartmentList?.map((apartment: Rooms) => (
+              <div key={ apartment.id } className="card-style">
+                <img
+                  src={ apartment.img }
+                  alt={ apartment.nome }
+                  className="image-style"
+                />
+                <div className="container-infos">
+                  <div className="container-gap">
                     <p className="text-style">{apartment.nome}</p>
-                    <div className="frame-96">
+                    <div className="apartment-rate">
                       <Rate disabled defaultValue={ apartment.avaliacao.nota } />
                       <p>
                         { apartment.avaliacao.quantidade }
                         {' '}
                         Comentários
                       </p>
-                      <div className="frame-89">
+                      <div className="space-icon-user">
                         <h2>
                           <FontAwesomeIcon
                             icon={ faUser }
@@ -95,7 +93,7 @@ export function ApartmentList() {
                         {apartment.descricao}
                       </p>
                     </div>
-                    <div className="frame-95">
+                    <div className="apartment-icons">
                       {
                         apartment.caracteristicas.map((items) => (
                           <div key={ items.id }>
@@ -109,8 +107,8 @@ export function ApartmentList() {
                       }
                     </div>
                   </div>
-                  <div className="frame-101">
-                    <div className="frame-100">
+                  <div className="container-reservation">
+                    <div className="text-info-daily">
                       <p className="title-dayle">Diária a partir de</p>
                       <h3 className="price-title">
                         R$

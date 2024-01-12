@@ -1,19 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Rate } from 'antd';
-import { useContext, useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getFeedbacksData } from '../../services/FeedbacksData';
-import { feedbacksContext } from '../../contexts/FeedbacksContext';
 import iconSvg from '../../assets/UserIcon.svg';
 import './Feedbacks.scss';
+import { FeedbacksType } from '../../types/FeedbacksType';
 
 export function Feedbacks() {
-  const {
-    carouselRef,
-    currentIndex,
-    feedbackData,
-    setCurrentIndex,
-    setFeedbackData } = useContext(feedbacksContext);
+  const [feedbackData, setFeedbackData] = useState<FeedbacksType[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchFeedbacks() {

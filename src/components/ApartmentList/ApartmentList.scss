@@ -180,7 +180,6 @@
     .description {
       width: 485px;
       height: 250px;
-      max-height: 250px;
 
     .width-description-1 {
       align-self: stretch;
@@ -196,7 +195,7 @@
     }
     .width-description-2 {
       align-self: stretch;
-      margin: 10px 5px 10px;
+      margin: 10px 5px;
       max-width: 500px;
       color: var(--Neutral-Color-colorText, #4B4B4B);
       font-family: Inter;

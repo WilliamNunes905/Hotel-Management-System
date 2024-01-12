@@ -48,7 +48,6 @@ export function Header() {
         <Badge
           size="default"
           count={ bedrooms.length }
-          showZero
           className="badge-reservation"
         />
       </div>

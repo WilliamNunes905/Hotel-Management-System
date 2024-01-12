@@ -4,7 +4,6 @@ import { PaymentsContext } from '../../../contexts/PaymentsContext';
 import '../Payments.scss';
 
 export function FormsPayments() {
-  const dateFormatList = ['DD/MM/YYYY'];
   const {
     formInfo,
     setFormInfo,
@@ -83,7 +82,7 @@ export function FormsPayments() {
                 (_date, dateString) => handleDateChange('cardValidity', dateString)
               }
               placeholder="00/00"
-              format={ dateFormatList }
+              format="DD/MM/YYYY"
             />
           </div>
           <div className="frame-14">

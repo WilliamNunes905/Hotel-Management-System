@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Rate } from 'antd';
+import { format } from 'date-fns';
 import { useEffect, useRef, useState } from 'react';
 import { getFeedbacksData } from '../../services/FeedbacksData';
+import { FeedbacksType } from '../../types/FeedbacksType';
 import iconSvg from '../../assets/UserIcon.svg';
 import './Feedbacks.scss';
-import { FeedbacksType } from '../../types/FeedbacksType';
 
 export function Feedbacks() {
   const [feedbackData, setFeedbackData] = useState<FeedbacksType[]>([]);
@@ -72,7 +73,7 @@ export function Feedbacks() {
                   <h2 className="text-autor">{ Feedback.autor }</h2>
                   <p>{ Feedback.descricao }</p>
                   <div className="Assessment">
-                    <p>{ Feedback.data }</p>
+                    <p>{format(new Date(Feedback.data), 'MMMM yyyy')}</p>
                     <Rate disabled defaultValue={ Feedback.nota } />
                   </div>
                 </div>

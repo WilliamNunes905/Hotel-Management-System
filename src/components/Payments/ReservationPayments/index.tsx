@@ -7,15 +7,14 @@ import '../Payments.scss';
 import { ApartmentContext } from '../../../contexts/ApartmentContext';
 
 export function ReservationPayments() {
+  const { bedrooms, setBedrooms } = useContext(ApartmentContext);
+  const [countDailyList, setCountDailyList] = useState<Record<number, number>>({});
+
   const {
     storageStayHotel,
     setStorageStayHotel,
     clearGlobalState,
   } = useContext(PaymentsContext);
-
-  const { bedrooms, setBedrooms } = useContext(ApartmentContext);
-
-  const [countDailyList, setCountDailyList] = useState<Record<number, number>>({});
 
   useEffect(() => {
     const stayHotel = localStorage.getItem('reserve');

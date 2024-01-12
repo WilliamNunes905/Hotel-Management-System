@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoSvg from '../../assets/logoSilbeckWhite.svg';
+import { useEffect, useState } from 'react';
 import { axiosFooterData } from '../../services/FooterData';
 import { FooterDataTypes } from '../../types/FooterData';
+import logoSvg from '../../assets/logoSilbeckWhite.svg';
 import './Footer.scss';
 
 export function Footer() {
@@ -20,13 +20,12 @@ export function Footer() {
 
   return (
     <div className="footer-container">
-
-      <div className="frame-128">
-        <div className="frame-131">
+      <div className="footer-container-content">
+        <div className="container-address">
           <div>
-            <img src={ logoSvg } alt="logo" className="frame-121" />
+            <img src={ logoSvg } alt="logo" className="img-logo" />
           </div>
-          <div className="frame-126">
+          <div className="address-information">
             <p>{ `${footerData?.endereco.rua}, ${footerData?.endereco.numero}` }</p>
             <p>
               {
@@ -38,14 +37,14 @@ export function Footer() {
             <p>suporte@silbeck.com.br</p>
           </div>
         </div>
-        <div className="frame-127">
-          <div className="frame-125">
+        <div className="container-information">
+          <div className="container-about">
             <p className="strong">Sobre nós</p>
             <p>Nossa História</p>
             <p>Contato</p>
             <p>Termos e Condições</p>
           </div>
-          <div className="frame-125">
+          <div className="container-about">
             <p className="strong">Outros Serviços</p>
             <p>Passeios</p>
             <p>Spa</p>
@@ -53,23 +52,20 @@ export function Footer() {
           </div>
         </div>
       </div>
-
-      <div className="container-about">
+      <div className="container-social-media">
         <p>Nos encontre nas redes sociais</p>
-
-        <div className="frame-132">
+        <div className="social-media-links">
           <Link to={ footerData?.instagram || '/Home' } className="socialMedia">
             <FontAwesomeIcon icon={ faInstagram } />
           </Link>
           <Link to={ footerData?.facebook || '/Home' } className="socialMedia">
             <FontAwesomeIcon icon={ faFacebook } />
           </Link>
-          <Link to={ footerData?.twitter || '/default-url' } className="socialMedia">
+          <Link to={ footerData?.twitter || '/Home' } className="socialMedia">
             <FontAwesomeIcon icon={ faTwitter } />
           </Link>
         </div>
-
-        <div className="container-130">
+        <div className="box-newsletter">
           <p>
             Assine nossa newsletter, toda semana um conteúdo novo
             <br />
@@ -89,9 +85,7 @@ export function Footer() {
             Enviar
           </button>
         </div>
-
       </div>
-
     </div>
   );
 }

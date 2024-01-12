@@ -15,10 +15,6 @@ export function Header() {
   const navigate = useNavigate();
   const { bedrooms } = useContext(ApartmentContext);
 
-  function handleNavigateToPayment() {
-    navigate('/payment');
-  }
-
   return (
     <div className="header-container">
       <div className="logo-container">
@@ -39,7 +35,7 @@ export function Header() {
       </div>
       <button
         className="button-reservation"
-        onClick={ () => handleNavigateToPayment() }
+        onClick={ () => navigate('/payment') }
       >
         <FontAwesomeIcon icon={ faCartFlatbedSuitcase } />
         Reservas

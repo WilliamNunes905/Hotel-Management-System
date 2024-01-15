@@ -27,7 +27,7 @@ export function ApartmentList() {
   useEffect(() => {
     async function fetchData() {
       const response = await dataApartmentList();
-      const threeApartment = response.slice(0, 3);
+      const threeApartment = response;
       setApartmentList(threeApartment);
     }
     fetchData();

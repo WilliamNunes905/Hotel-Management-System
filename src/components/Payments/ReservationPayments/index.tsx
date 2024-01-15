@@ -1,10 +1,11 @@
 import { useEffect, useContext, useState } from 'react';
-import { Divider } from 'antd';
+import { Divider, message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { PaymentsContext } from '../../../contexts/PaymentsContext';
-import '../Payments.scss';
 import { ApartmentContext } from '../../../contexts/ApartmentContext';
+import { validateForm } from '../../../utils/validateForm';
+import '../Payments.scss';
 
 export function ReservationPayments() {
   const { bedrooms, setBedrooms } = useContext(ApartmentContext);
@@ -13,7 +14,8 @@ export function ReservationPayments() {
   const {
     storageStayHotel,
     setStorageStayHotel,
-    clearGlobalState,
+    formInfo,
+    setFormInfo,
   } = useContext(PaymentsContext);
 
   useEffect(() => {
@@ -43,6 +45,22 @@ export function ReservationPayments() {
         [id]: newValue,
       };
     });
+  }
+
+  function clearGlobalState() {
+    if (validateForm(formInfo)) {
+      setFormInfo({
+        name: '',
+        email: '',
+        creditCard: false,
+        pix: false,
+        cardName: '',
+        cardValidity: '',
+        cardCVC: '',
+      });
+      message.success('Reserva efetuada com Sucesso');
+      localStorage.clear();
+    }
   }
 
   return (

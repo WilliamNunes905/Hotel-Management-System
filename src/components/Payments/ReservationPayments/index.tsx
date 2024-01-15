@@ -72,7 +72,7 @@ export function ReservationPayments() {
                     { bedroom.hospedes }
                   </p>
                 </div>
-                <div className="frame-138">
+                <div className="container-card-hotel">
                   <h3 className="moneyFrame">
                     R$
                     {' '}

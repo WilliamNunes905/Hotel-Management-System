@@ -59,7 +59,8 @@ export function ReservationPayments() {
         cardCVC: '',
       });
       message.success('Reserva efetuada com Sucesso');
-      localStorage.clear();
+      const keysToRemove = ['rooms', 'reserve', 'Form'];
+      keysToRemove.forEach((key) => localStorage.removeItem(key));
     }
   }
 

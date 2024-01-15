@@ -21,8 +21,8 @@ export function ReservationPayments() {
     if (stayHotel) setStorageStayHotel(JSON.parse(stayHotel));
   }, [setStorageStayHotel]);
 
-  function handleDeleteBedroom(id: number) {
-    const updatedBedrooms = bedrooms.filter((bedroom) => bedroom.id !== id);
+  function handleDeleteBedroom(index: number) {
+    const updatedBedrooms = bedrooms.filter((_bedroom, idx) => idx !== index);
     setBedrooms(updatedBedrooms);
     localStorage.setItem('rooms', JSON.stringify(updatedBedrooms));
   }
@@ -99,7 +99,7 @@ export function ReservationPayments() {
                     <button
                       type="button"
                       className="buttonDelete"
-                      onClick={ () => handleDeleteBedroom(bedroom.id) }
+                      onClick={ () => handleDeleteBedroom(index) }
                     >
                       <FontAwesomeIcon icon={ faTrash } />
                       Excluir

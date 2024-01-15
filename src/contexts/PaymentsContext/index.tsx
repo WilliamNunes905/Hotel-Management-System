@@ -18,7 +18,6 @@ type PaymentsContextValue = {
   storageStayHotel: Guest | null;
   setStorageStayHotel: Dispatch<SetStateAction<Guest | null>>;
   validateForm: () => void;
-  handleDateChange: (key: any, dateString: any) => void;
   clearGlobalState: () => void;
 };
 
@@ -50,13 +49,6 @@ export function PaymentsProvider({ children }: { children: React.ReactNode }) {
     return errors.length === 0;
   }
 
-  const handleDateChange = (key: any, dateString: any) => {
-    setFormInfo((prevFormInfo) => ({
-      ...prevFormInfo,
-      [key]: dateString,
-    }));
-  };
-
   function clearGlobalState() {
     if (validateForm()) {
       setFormInfo({
@@ -81,7 +73,6 @@ export function PaymentsProvider({ children }: { children: React.ReactNode }) {
         storageStayHotel,
         setStorageStayHotel,
         validateForm,
-        handleDateChange,
         clearGlobalState,
       } }
     >

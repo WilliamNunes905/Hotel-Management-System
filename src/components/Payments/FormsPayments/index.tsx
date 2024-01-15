@@ -7,7 +7,6 @@ export function FormsPayments() {
   const {
     formInfo,
     setFormInfo,
-    handleDateChange,
   } = useContext(PaymentsContext);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
@@ -20,6 +19,13 @@ export function FormsPayments() {
       [name]: value,
     });
     localStorage.setItem('Form', JSON.stringify(formInfo));
+  }
+
+  function handleDateChange(key: any, dateString: any) {
+    setFormInfo((prevFormInfo) => ({
+      ...prevFormInfo,
+      [key]: dateString,
+    }));
   }
 
   return (

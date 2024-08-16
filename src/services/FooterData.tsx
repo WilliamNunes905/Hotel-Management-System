@@ -1,14 +1,48 @@
-import axios from 'axios';
 import { FooterDataTypes } from '../types/FooterData';
 
 export async function axiosFooterData(): Promise<FooterDataTypes> {
   try {
-    const response = await axios.get<FooterDataTypes>('https://run.mocky.io/v3/9e51aa23-2c5d-46bc-9b25-074cfc617ab6');
-    return response.data;
+    const hotelData: FooterDataTypes = {
+      hotel: {
+        nome: 'Hotel Exemplo',
+        endereco: {
+          rua: 'Av. Principal',
+          numero: 358,
+          cidade: 'Armazém',
+          estado: 'Santa Catarina',
+          cep: '88740-000',
+        },
+        classificacao_estrelas: 4,
+        quartos: [
+          {
+            numero: 101,
+            tipo: 'Standard',
+            preco_diaria: 200.0,
+            disponibilidade: true,
+          },
+          {
+            numero: 102,
+            tipo: 'Luxo',
+            preco_diaria: 350.0,
+            disponibilidade: false,
+          },
+        ],
+        facilidades: [
+          'Wi-Fi gratuito',
+          'Piscina',
+          'Estacionamento gratuito',
+          'Academia',
+        ],
+        check_in: '14:00',
+        check_out: '12:00',
+        contato: {
+          telefone: '(+55) 48 58745-8541',
+          email: 'suporte@HotelSystem.com',
+        },
+      },
+    };
+    return await Promise.resolve(hotelData);
   } catch (error) {
-    if (axios.isAxiosError(error)) {
-      throw new Error(`Erro na resposta da API: ${error.response}`);
-    }
     throw new Error('Erro desconhecido');
   }
 }

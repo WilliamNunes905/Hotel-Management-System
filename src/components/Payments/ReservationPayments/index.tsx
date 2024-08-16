@@ -21,7 +21,9 @@ export function ReservationPayments() {
   useEffect(() => {
     const stayHotel = localStorage.getItem('reserve');
     if (stayHotel) setStorageStayHotel(JSON.parse(stayHotel));
-  }, [setStorageStayHotel]);
+    const localStorageRooms = JSON.parse(localStorage.getItem('rooms') as string) || [];
+    setBedrooms(localStorageRooms);
+  }, [setBedrooms, setStorageStayHotel]);
 
   function handleDeleteBedroom(index: number) {
     const updatedBedrooms = bedrooms.filter((_bedroom, idx) => idx !== index);

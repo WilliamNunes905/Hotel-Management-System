@@ -5,7 +5,10 @@ import {
   faHotTubPerson,
   faMugHot,
   faTv,
-  faUser, faWifi } from '@fortawesome/free-solid-svg-icons';
+  faUser,
+  faWheelchair,
+  faWifi,
+} from '@fortawesome/free-solid-svg-icons';
 import { Rate, message } from 'antd';
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
 import { useContext, useEffect } from 'react';
@@ -15,30 +18,34 @@ import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
 
-library.add(faBellConcierge, faHotTubPerson, faMugHot, faTv, faUser, faWifi);
+library.add(
+  faBellConcierge,
+  faHotTubPerson,
+  faMugHot,
+  faTv,
+  faUser,
+  faWifi,
+  faWheelchair,
+);
 
 export function ApartmentList() {
   const {
     apartmentList,
     setApartmentList,
-    setBedrooms,
   } = useContext(ApartmentContext);
 
   useEffect(() => {
     async function fetchData() {
       const response = await dataApartmentList();
-      const threeApartment = response;
-      setApartmentList(threeApartment);
+      setApartmentList(response);
     }
     fetchData();
   }, [setApartmentList]);
 
-  function handleClick(apartment: any) {
-    setBedrooms((prevBedrooms) => {
-      const updatedBedrooms = [...prevBedrooms, apartment];
-      saveToLocalStorage('rooms', updatedBedrooms);
-      return updatedBedrooms;
-    });
+  function handleClick(apartment: Rooms) {
+    const previousApartments = JSON.parse(localStorage.getItem('rooms') as string) || [];
+    const updatedApartments = [...previousApartments, apartment];
+    saveToLocalStorage('rooms', updatedApartments);
     message.success({
       content: 'Adicionado com Sucesso',
       duration: 2,
@@ -52,7 +59,7 @@ export function ApartmentList() {
           <div className="container-text">
             <h1 className="h1-quartos">Quartos</h1>
             <p className="textInform">
-              Todos os nossos tipos de quartos incluem café da manhã
+              Todos os nossos tipos de quartos incluem café da manhã.
             </p>
           </div>
           <div className="container-card">
@@ -83,7 +90,6 @@ export function ApartmentList() {
                           x
                           {apartment.hospedes}
                         </h2>
-
                       </div>
                     </div>
                     <div className="description">

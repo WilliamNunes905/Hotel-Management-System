@@ -26,15 +26,18 @@ export function Footer() {
             <img src={ logoSvg } alt="logo" className="img-logo" />
           </div>
           <div className="address-information">
-            <p>{ `${footerData?.endereco.rua}, ${footerData?.endereco.numero}` }</p>
+            <p>
+              { `${footerData?.hotel.endereco.rua},
+            ${footerData?.hotel.endereco.numero}` }
+            </p>
             <p>
               {
-              `${footerData?.endereco.bairro}, 
-              ${footerData?.endereco.cidade} - Santa Catarina`
+              `${footerData?.hotel.endereco.cidade} - 
+              ${footerData?.hotel.endereco.estado}`
               }
             </p>
-            <p>{ footerData?.telefone }</p>
-            <p>suporte@silbeck.com.br</p>
+            <p>{ footerData?.hotel.contato.telefone }</p>
+            <p>{ footerData?.hotel.contato.email }</p>
           </div>
         </div>
         <div className="container-information">
@@ -55,13 +58,13 @@ export function Footer() {
       <div className="container-social-media">
         <p>Nos encontre nas redes sociais</p>
         <div className="social-media-links">
-          <Link to={ footerData?.instagram || '/Home' } className="socialMedia">
+          <Link to="/Home" className="socialMedia">
             <FontAwesomeIcon icon={ faInstagram } />
           </Link>
-          <Link to={ footerData?.facebook || '/Home' } className="socialMedia">
+          <Link to="/Home" className="socialMedia">
             <FontAwesomeIcon icon={ faFacebook } />
           </Link>
-          <Link to={ footerData?.twitter || '/Home' } className="socialMedia">
+          <Link to="/Home" className="socialMedia">
             <FontAwesomeIcon icon={ faTwitter } />
           </Link>
         </div>

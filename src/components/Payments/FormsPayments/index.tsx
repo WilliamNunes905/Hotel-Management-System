@@ -7,7 +7,6 @@ export function FormsPayments() {
   const {
     formInfo,
     setFormInfo,
-    handleDateChange,
   } = useContext(PaymentsContext);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
@@ -22,11 +21,18 @@ export function FormsPayments() {
     localStorage.setItem('Form', JSON.stringify(formInfo));
   }
 
+  function handleDateChange(key: any, dateString: any) {
+    setFormInfo((prevFormInfo) => ({
+      ...prevFormInfo,
+      [key]: dateString,
+    }));
+  }
+
   return (
     <div className="contentWrapper">
       <div className="contactInformation">
         <h2>Identificação</h2>
-        <label className="frame-10">
+        <label className="container-label">
           Nome *
           <input
             type="text"
@@ -63,7 +69,7 @@ export function FormsPayments() {
           />
           PIX
         </label>
-        <label className="frame-10">
+        <label className="container-label">
           Nome Cartão
           <input
             type="text"
@@ -72,8 +78,8 @@ export function FormsPayments() {
             onChange={ (event) => handleChange(event) }
           />
         </label>
-        <div className="frame-135">
-          <div className="frame-13">
+        <div className="box-card">
+          <div className="box-validate">
             Validade
             <DatePicker
               className="datePicker"
@@ -85,7 +91,7 @@ export function FormsPayments() {
               format="DD/MM/YYYY"
             />
           </div>
-          <div className="frame-14">
+          <div className="box-cvc">
             CVC
             <input
               type="text"

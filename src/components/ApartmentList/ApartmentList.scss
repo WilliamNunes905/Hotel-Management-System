@@ -57,14 +57,14 @@
     align-self: stretch;
     display: flex;
     padding: var(--Components-Input-Component-paddingBlockSM, 0px);
-    justify-content: space-between;
+    gap: 22px;
+    flex-wrap: wrap;
   }
 
   .card-style {
     display: flex;
     flex-direction: column;
     background: white;
-    margin-bottom: 20px;
     border-radius: 16px; 
     gap: 12px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);

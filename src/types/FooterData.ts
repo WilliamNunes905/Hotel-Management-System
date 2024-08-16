@@ -1,19 +1,34 @@
-export type FooterDataTypes = {
-  id: number;
-  url: string;
+export interface Hotel {
   nome: string;
-  endereco: {
-    rua: string;
-    numero: string;
-    bairro: string;
-    cidade: string;
-    estado: string;
-    pais: string;
-  };
-  facebook: string;
-  instagram: string;
-  twitter: string;
-  youtube: string;
+  endereco: Endereco;
+  classificacao_estrelas: number;
+  quartos: Quarto[];
+  facilidades: string[];
+  check_in: string;
+  check_out: string;
+  contato: Contato;
+}
+
+export interface Endereco {
+  rua: string;
+  numero: number;
+  cidade: string;
+  estado: string;
+  cep: string;
+}
+
+export interface Quarto {
+  numero: number;
+  tipo: string;
+  preco_diaria: number;
+  disponibilidade: boolean;
+}
+
+export interface Contato {
   telefone: string;
   email: string;
-};
+}
+
+export interface FooterDataTypes {
+  hotel: Hotel;
+}

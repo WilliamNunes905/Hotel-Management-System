@@ -1,82 +1,81 @@
 .header-container {
-    background: #F5F5F5;
+  background: #F5F5F5;
+  display: flex;
+  padding: 20px 48px;
+  align-items: center;
+  gap: 24px;
+
+  .logo-container {
+    .berkshire-swash-regular {
+      font-family: "Berkshire Swash", serif;
+      font-weight: 500;
+      font-size: 35px;
+      font-style: normal;
+      color: black;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .selects-container {
     display: flex;
-    padding: 20px 48px;
     align-items: center;
     gap: 24px;
-  
-    .logo-container {
-      .berkshire-swash-regular {
-        font-family: "Berkshire Swash", serif;
-        font-weight: 500;
-        font-size: 35px;
-        font-style: normal;
-        color: black;
-      }
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .selects-container {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-    .select-label {
-      align-items: center;
-      background-color: #F5F5F5;
-      display: flex;
-      border: none;
-      padding: 10px;
-      font-size: 20px;
-      gap: 4px;
-      font-family: "Font Awesome 6 Pro";
-    }
   }
-
-  $button-padding: 15px 25px;
-  $button-border-radius: 8px;
-  
-  .button-reservation {
-    cursor: pointer;
-    display: flex;
-    padding: $button-padding;
-    flex-direction: row;
-    justify-content: center;
+  .select-label {
     align-items: center;
-    gap: 8px;
-    border-radius: var(--components-button-global-border-radius-lg, $button-border-radius);
-    border: 2px solid #182558;
-    color: #182558;
-    font-family: "Font Awesome 6 Pro";
+    background-color: #F5F5F5;
+    display: flex;
+    border: none;
+    padding: 10px;
     font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-  
-    &:hover {
-      background-color: #182558;
-      color: #ffffff;
-    }
-    transition: background-color 0.28s, color 0.3s;
-  }
-  
-  .container-badge {
-    display: flex;
-    height: var(--components-badge-component-indicator-height, 20px);
-    flex-direction: column;
-    justify-content: center;
+    gap: 4px;
     font-family: "Font Awesome 6 Pro";
-    align-items: center;
-    
-    .badge-reservation {
-      position: absolute;
-      width: 22px;
-      right: 62px;
-      top: 22px;
-      color: red;
-    }
   }
+}
+
+$button-padding: 15px 25px;
+$button-border-radius: 8px;
+
+.button-reservation {
+  cursor: pointer;
+  display: flex;
+  padding: $button-padding;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: var(--components-button-global-border-radius-lg, $button-border-radius);
+  border: 2px solid #182558;
+  color: #182558;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+
+  &:hover {
+    background-color: #182558;
+    color: #ffffff;
+  }
+  transition: background-color 0.28s, color 0.3s;
+}
+
+.container-badge {
+  display: flex;
+  height: var(--components-badge-component-indicator-height, 20px);
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Font Awesome 6 Pro";
+  align-items: center;
   
-  
+  .badge-reservation {
+    position: absolute;
+    width: 22px;
+    right: 62px;
+    top: 22px;
+    color: red;
+  }
+}
+

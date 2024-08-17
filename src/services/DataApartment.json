@@ -1,86 +1,85 @@
 [
-    {
-      "id": 1,
-      "hospedes": 2,
-      "codigo": "R001",
-      "url": "https://example.com/hotel1",
-      "nome": "Suite Luxo",
-      "img": "https://www.kayak.pt/rimg/himg/c7/c2/cb/ice-79912-63022706_3XL-535749.jpg?width=968&height=607&crop=true",
-      "descricao": "Uma suíte luxuosa com vista para o mar e todas as comodidades modernas.",
-      "preco": 350.00,
-      "caracteristicas": [
-        {
-          "id": 1,
-          "nome": "Wi-Fi",
-          "icone": "fa-solid fa-wifi"
-        },
-        {
-          "id": 2,
-          "nome": "Hidromassagem",
-          "icone": "fa-solid fa-hot-tub-person"
-        },
-        {
-          "id": 3,
-          "nome": "Café da Manhã Incluso",
-          "icone": "fa-solid fa-mug-hot"
-        },
-        {
-          "id": 4,
-          "nome": "Tv Incluso",
-          "icone": "fa-solid fa-tv"
-        }
-      ],
-      "avaliacao": {
-        "nota": 4.8,
-        "quantidade": 120
+  {
+    "id": 1,
+    "hospedes": 2,
+    "codigo": "R001",
+    "url": "https://example.com/hotel1",
+    "nome": "Suite Luxo",
+    "img": "https://www.kayak.pt/rimg/himg/c7/c2/cb/ice-79912-63022706_3XL-535749.jpg?width=968&height=607&crop=true",
+    "descricao": "Uma suíte luxuosa com vista para o mar e todas as comodidades modernas.",
+    "preco": 350.00,
+    "caracteristicas": [
+      {
+        "id": 1,
+        "nome": "Wi-Fi",
+        "icone": "fa-solid fa-wifi"
+      },
+      {
+        "id": 2,
+        "nome": "Hidromassagem",
+        "icone": "fa-solid fa-hot-tub-person"
+      },
+      {
+        "id": 3,
+        "nome": "Café da Manhã Incluso",
+        "icone": "fa-solid fa-mug-hot"
+      },
+      {
+        "id": 4,
+        "nome": "Tv Incluso",
+        "icone": "fa-solid fa-tv"
       }
-    },
-    {
-      "id": 2,
-      "hospedes": 4,
-      "codigo": "R002",
-      "url": "https://example.com/hotel2",
-      "nome": "Quarto Standard",
-      "img": "https://media-cdn.tripadvisor.com/media/photo-s/07/de/39/d6/hotel-atlantico-rio.jpg",
-      "descricao": "Quarto confortável com todas as necessidades básicas para uma estadia agradável.",
-      "preco": 150.00,
-      "caracteristicas": [
-        {
-          "id": 4,
-          "nome": "Televisão",
-          "icone": "https://example.com/icons/tv.png"
-        },
-        {
-          "id": 5,
-          "nome": "Almoço",
-          "icone": "fa-solid fa-bell-concierge"
-        }
-      ],
-      "avaliacao": {
-        "nota": 4.3,
-        "quantidade": 85
-      }
-    },
-    {
-      "id": 3,
-      "hospedes": 1,
-      "codigo": "R003",
-      "url": "https://example.com/hotel3",
-      "nome": "Quarto Individual",
-      "img": "https://static.wixstatic.com/media/358476_bdc788871c8a4fc38cb326f4e020985a~mv2.jpg/v1/fill/w_619,h_451,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/358476_bdc788871c8a4fc38cb326f4e020985a~mv2.jpg",
-      "descricao": "Quarto ideal para uma estadia curta, com todas as facilidades necessárias para um bom descanso.",
-      "preco": 90.00,
-      "caracteristicas": [
-        {
-          "id": 6,
-          "nome": "Internet",
-          "icone": "https://example.com/icons/internet.png"
-        }
-      ],
-      "avaliacao": {
-        "nota": 3.8,
-        "quantidade": 60
-      }
+    ],
+    "avaliacao": {
+      "nota": 4.8,
+      "quantidade": 120
     }
-  ]
-  
+  },
+  {
+    "id": 2,
+    "hospedes": 4,
+    "codigo": "R002",
+    "url": "https://example.com/hotel2",
+    "nome": "Quarto Standard",
+    "img": "https://media-cdn.tripadvisor.com/media/photo-s/07/de/39/d6/hotel-atlantico-rio.jpg",
+    "descricao": "Quarto confortável com todas as necessidades básicas para uma estadia agradável.",
+    "preco": 150.00,
+    "caracteristicas": [
+      {
+        "id": 4,
+        "nome": "Televisão",
+        "icone": "https://example.com/icons/tv.png"
+      },
+      {
+        "id": 5,
+        "nome": "Almoço",
+        "icone": "fa-solid fa-bell-concierge"
+      }
+    ],
+    "avaliacao": {
+      "nota": 4.3,
+      "quantidade": 85
+    }
+  },
+  {
+    "id": 3,
+    "hospedes": 1,
+    "codigo": "R003",
+    "url": "https://example.com/hotel3",
+    "nome": "Quarto Individual",
+    "img": "https://static.wixstatic.com/media/358476_bdc788871c8a4fc38cb326f4e020985a~mv2.jpg/v1/fill/w_619,h_451,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/358476_bdc788871c8a4fc38cb326f4e020985a~mv2.jpg",
+    "descricao": "Quarto ideal para uma estadia curta, com todas as facilidades necessárias para um bom descanso.",
+    "preco": 90.00,
+    "caracteristicas": [
+      {
+        "id": 6,
+        "nome": "Internet",
+        "icone": "https://example.com/icons/internet.png"
+      }
+    ],
+    "avaliacao": {
+      "nota": 3.8,
+      "quantidade": 60
+    }
+  }
+]

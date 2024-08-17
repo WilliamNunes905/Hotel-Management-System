@@ -6,17 +6,17 @@
     padding: 48px 50px 45px 80px;
     justify-content: space-between;
 
-    .frame-128 {
+    .footer-container-content {
     display: flex;
     padding: var(--components-input-component-padding-block-sm, 0px);
     align-items: flex-end;
     gap: 201px;
     align-self: stretch;
     width: auto;
-    height: 100%;
+    height: 190px;
     }
 
-    .frame-131 {
+    .container-address {
     display: flex;
     padding: var(--components-input-component-padding-block-sm, 0px);
     flex-direction: column;
@@ -26,18 +26,15 @@
     align-self: stretch;
     }
 
-    .frame-121 {
-    display: flex;
-    padding: var(--components-input-component-padding-block-sm, 0px);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 45px;
-    flex: 1 0 0;
-    align-self: stretch;
-    border-radius: var(--components-input-component-padding-block-sm, 0px);
-    }
+    .berkshire-swash {
+        font-family: "Berkshire Swash", serif;
+        font-weight: 500;
+        font-size: 35px;
+        font-style: normal;
+        color: white;
+      }
 
-    .frame-126 {
+    .address-information {
     display: flex;
     padding: var(--components-input-component-padding-block-sm, 0px);
     border-radius: var(--components-input-component-padding-block-sm, 0px);
@@ -46,7 +43,7 @@
     gap: 4px;
     }
 
-    .frame-127 {
+    .container-information {
     display: flex;
     padding: var(--components-input-component-padding-block-sm, 0px);
     border-radius: var(--components-input-component-padding-block-sm, 0px);
@@ -54,34 +51,25 @@
     gap: 80px;
     }
 
-    .frame-125 {
-    display: flex;
-    padding: var(--components-input-component-padding-block-sm, 0px);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--components-button-component-only-icon-size, 18px);
-    border-radius: var(--components-input-component-padding-block-sm, 0px);
-    }
-
-    .frame-126 {
-    display: flex;
-    padding: var(--components-input-component-padding-block-sm, 0px);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--components-button-component-only-icon-size, 8px);
-    border-radius: var(--components-input-component-padding-block-sm, 0px);
-    }
-
     .container-about {
     display: flex;
     padding: var(--components-input-component-padding-block-sm, 0px);
     flex-direction: column;
     align-items: flex-start;
+    gap: var(--components-button-component-only-icon-size, 16px);
+    border-radius: var(--components-input-component-padding-block-sm, 0px);
+    }
+
+    .container-social-media {
+    display: flex;
+    padding: var(--components-input-component-padding-block-sm, 0px);
+    flex-direction: column;
+    align-items: flex-start;
     gap: var(--components-button-component-only-icon-size, 18px);
     border-radius: var(--components-input-component-padding-block-sm, 0px);
     }
 
-    .frame-132 {
+    .social-media-links {
     display: flex;
     padding: var(--components-input-component-padding-block-sm, 0px);
     align-items: flex-start;
@@ -99,11 +87,9 @@
     gap: 10px;
     width: 30px;
     }
-
-
     }
 
-    .container-130 {
+    .box-newsletter {
     display: flex;
     padding: var(--components-input-component-padding-block-sm, 0px);
     flex-direction: column;
@@ -117,7 +103,7 @@
         
         .input-footer {
             display: flex;
-            height: 54px;
+            height: 52px;
             width: 320px;
             align-items: center;
             gap: 10px;
@@ -131,7 +117,7 @@
 
             .input-footer::placeholder {
                 color: var(--components-input-global-color-text-placeholder, rgba(0, 0, 0, 0.25));
-                font-family: Inter;
+                font-family: "Font Awesome 6 Pro";
                 font-size: 25px;
                 font-weight: 400;
                 padding: 6px;
@@ -144,11 +130,11 @@
                 border-radius: var(--components-input-component-padding-block-sm, 0px) 8px 8px var(--components-input-component-padding-block-sm, 0px);
                 border: 1px solid var(--brand-color-color-primary-border, #9BB5E8);
                 cursor: pointer;
-                font-family: Inter;
+                font-family: "Font Awesome 6 Pro";
                 font-size: 20px;
                 font-weight: 400;
                 line-height: 24px;
-                height: 54px;
+                height: 52px;
                 padding: var(--components-input-component-padding-block-sm, 0px) 12px;
                 justify-content: center;
                 gap: var(--components-button-global-margin-xs, 8px);
@@ -157,8 +143,8 @@
 
     p {
     color: var(--neutral-color-bg, #F5F5F5);
-    font-family: Inter;
-    font-size: 16px;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 19px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;

@@ -1,13 +1,12 @@
-import axios from 'axios';
-import { Quarto } from '../types/ApartmentListType';
+import { Rooms } from '../types/ApartmentListType';
+import { apartmentListData } from '../types/mockData';
 
-export async function dataApartmentList(): Promise<Quarto[]> {
+export async function dataApartmentList(): Promise<Rooms[]> {
   try {
-    const response = await axios.get<Quarto[]>('https://run.mocky.io/v3/c20be17a-bc5c-4736-a5e5-dbcff9591b5a');
-    return response.data;
+    return await Promise.resolve(apartmentListData);
   } catch (error) {
-    if (axios.isAxiosError(error)) {
-      throw new Error(`Erro na resposta da API: ${error.response}`);
+    if (error instanceof Error) {
+      throw new Error(`Erro desconhecido: ${error.message}`);
     }
     throw new Error('Erro desconhecido');
   }

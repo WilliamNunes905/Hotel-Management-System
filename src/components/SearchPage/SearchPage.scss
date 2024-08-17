@@ -3,15 +3,16 @@
   background: #182558;
   border-radius: var(--components-input-component-padding-block-sm, 0px);
   display: flex;
-  padding: 32px 52px;
+  padding: 35px 55px;
   justify-content: center;
-  gap: 64px;
+  gap: 20px;
+  
 
   .container-data {
   display: flex;
   padding: var(--components-input-component-padding-block-sm, 0px);
   align-items: center;
-  gap: 24px;
+  gap: 14px;
   }
 
   .container-estadia {
@@ -20,8 +21,8 @@
   align-items: center;
   gap: 24px;
   color: var(--neutral-color-white-bg, #FFF);
-  font-family: Inter;
-  font-size: 15px;
+  font-family: "Font Awesome 6 Pro"; //font-family: Font Awesome 6 Pro;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
@@ -36,6 +37,7 @@
   color: var(--neutral-color-bg, #F5F5F5);
   font-family: Inter;
   font-size: 20px;
+  font-family: "Font Awesome 6 Pro";
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
@@ -48,7 +50,7 @@
     align-items: flex-start;
     gap: 8px;
     color: var(--neutral-color-bg, #F5F5F5);
-    font-family: Inter;
+    font-family: "Font Awesome 6 Pro";
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -73,6 +75,7 @@
     color: var(--neutral-color-white-bg, #FFF);
     font-family: Inter;
     font-size: 15px;
+    font-family: "Font Awesome 6 Pro";
     font-style: normal;
     font-weight: 600;
     line-height: 24px;
@@ -95,7 +98,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   $button-padding: 13px 25px 14px 25px;
   $button-border-radius: 8px;
 
@@ -109,8 +111,8 @@
     border-radius: var(--components-button-global-border-radius-lg, $button-border-radius);
     border: 1px solid #182558;
     color: white;
-    font-family: Inter;
-    font-size: 20px;
+    font-family: "Font Awesome 6 Pro";
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
   }

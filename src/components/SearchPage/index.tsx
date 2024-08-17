@@ -1,16 +1,14 @@
 import { useContext } from 'react';
 import { DatePicker, Space, Select } from 'antd';
-import './SearchPage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Guest } from '../../types/GuestType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { SearchContext } from '../../contexts/SearchContext';
+import './SearchPage.scss';
 
 export function SearchPage() {
   const { hotelGuests, setHotelGuests } = useContext(SearchContext);
-
-  const dateFormatList = ['DD/MM/YYYY'];
 
   const handleHotelGuests = (key: keyof Guest, value: string) => {
     setHotelGuests({ ...hotelGuests, [key]: value });
@@ -30,7 +28,7 @@ export function SearchPage() {
             <DatePicker
               className="datePicker"
               placeholder="Selecione a data"
-              format={ dateFormatList }
+              format="DD/MM/YYYY"
               onChange={ (_date, dateString) => handleHotelGuests('entry', dateString) }
             />
           </Space>
@@ -42,7 +40,7 @@ export function SearchPage() {
             <DatePicker
               className="datePicker"
               placeholder="Selecione a data"
-              format={ dateFormatList }
+              format="DD/MM/YYYY"
               onChange={ (_date, dateString) => handleHotelGuests('exit', dateString) }
             />
           </Space>
@@ -94,11 +92,10 @@ export function SearchPage() {
           onClick={ () => saveToLocalStorage('reserve', hotelGuests) }
         >
           <FontAwesomeIcon icon={ faMagnifyingGlass } />
-          Pesquisar
+          Adicionar
         </button>
       </div>
       <div />
-
     </div>
   );
 }

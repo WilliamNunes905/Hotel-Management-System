@@ -9,7 +9,7 @@ type Assessment = {
   quantidade: number;
 };
 
-export type Quarto = {
+export type Rooms = {
   id: number;
   hospedes: number;
   codigo: string;

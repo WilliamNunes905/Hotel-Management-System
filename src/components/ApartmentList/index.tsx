@@ -5,74 +5,86 @@ import {
   faHotTubPerson,
   faMugHot,
   faTv,
-  faUser, faWifi } from '@fortawesome/free-solid-svg-icons';
+  faUser,
+  faWheelchair,
+  faWifi,
+} from '@fortawesome/free-solid-svg-icons';
 import { Rate, message } from 'antd';
+import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
 import { useContext, useEffect } from 'react';
 import { dataApartmentList } from '../../services/dataApartmentList';
-import { Quarto } from '../../types/ApartmentListType';
+import { Rooms } from '../../types/ApartmentListType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
+import { CountBagde } from '../../contexts/CountHeaderContext/CountBagde';
+
+library.add(
+  faBellConcierge,
+  faHotTubPerson,
+  faMugHot,
+  faTv,
+  faUser,
+  faWifi,
+  faWheelchair,
+);
 
 export function ApartmentList() {
   const {
     apartmentList,
     setApartmentList,
-    setBedrooms,
   } = useContext(ApartmentContext);
+
+  const { setBadge } = useContext(CountBagde);
 
   useEffect(() => {
     async function fetchData() {
       const response = await dataApartmentList();
-      const threeApartment = response.slice(0, 3);
-      setApartmentList(threeApartment);
+      setApartmentList(response);
     }
     fetchData();
   }, [setApartmentList]);
 
-  function handleClick(apartment: any) {
-    setBedrooms((prevBedrooms) => {
-      const updatedBedrooms = [...prevBedrooms, apartment];
-      saveToLocalStorage('rooms', updatedBedrooms);
-      return updatedBedrooms;
-    });
+  function handleClick(apartment: Rooms) {
+    const previousApartments = JSON.parse(localStorage.getItem('rooms') as string) || [];
+    const updatedApartments = [...previousApartments, apartment];
+    saveToLocalStorage('rooms', updatedApartments);
     message.success({
       content: 'Adicionado com Sucesso',
       duration: 2,
     });
+    setBadge(+1);
   }
 
   return (
-    <div className="frame-28">
-      <div className="frame-24" id="quartos-section">
-        <div className="frame-26">
-          <div className="frame-106">
+    <div className="container-global">
+      <div className="container-section" id="quartos-section">
+        <div className="quartos-section">
+          <div className="container-text">
             <h1 className="h1-quartos">Quartos</h1>
             <p className="textInform">
-              Todos os nossos tipos de quartos incluem café da manhã
+              todos os nossos tipos de quartos disponíveis para você.
             </p>
           </div>
-          <div className="frame-22">
-            {apartmentList?.map((apartment: Quarto) => (
-              <div key={ apartment.id } className="frame-21">
-                <div className="group-91">
-                  <img
-                    src={ apartment.img }
-                    alt={ apartment.nome }
-                    className="image-style"
-                  />
-                </div>
-                <div className="frame-102">
-                  <div className="frame-99">
+          <div className="container-card">
+            {apartmentList?.map((apartment: Rooms) => (
+              <div key={ apartment.id } className="card-style">
+                <img
+                  src={ apartment.img }
+                  alt={ apartment.nome }
+                  className="image-style"
+                />
+                <div className="container-infos">
+                  <div className="container-gap">
                     <p className="text-style">{apartment.nome}</p>
-                    <div className="frame-96">
+                    <div className="apartment-rate">
                       <Rate disabled defaultValue={ apartment.avaliacao.nota } />
                       <p>
                         { apartment.avaliacao.quantidade }
                         {' '}
                         Comentários
                       </p>
-                      <div className="frame-89">
+                      <div className="space-icon-user">
                         <h2>
                           <FontAwesomeIcon
                             icon={ faUser }
@@ -82,7 +94,6 @@ export function ApartmentList() {
                           x
                           {apartment.hospedes}
                         </h2>
-
                       </div>
                     </div>
                     <div className="description">
@@ -92,36 +103,22 @@ export function ApartmentList() {
                         {apartment.descricao}
                       </p>
                     </div>
-                    <div className="frame-95">
-                      <FontAwesomeIcon
-                        className="icon-style-wifi"
-                        icon={ faWifi }
-                        style={ { color: '#486ccf' } }
-                      />
-                      <FontAwesomeIcon
-                        className="icon-style-bell"
-                        icon={ faBellConcierge }
-                        style={ { color: '#486ccf' } }
-                      />
-                      <FontAwesomeIcon
-                        className="icon-style-coffee"
-                        icon={ faMugHot }
-                        style={ { color: '#486ccf' } }
-                      />
-                      <FontAwesomeIcon
-                        className="icon-style-tv"
-                        icon={ faTv }
-                        style={ { color: '#486ccf' } }
-                      />
-                      <FontAwesomeIcon
-                        className="icon-style-hotTub"
-                        icon={ faHotTubPerson }
-                        style={ { color: '#486ccf' } }
-                      />
+                    <div className="apartment-icons">
+                      {
+                        apartment.caracteristicas.map((items) => (
+                          <div key={ items.id }>
+                            <FontAwesomeIcon
+                              icon={ items.icone as IconProp }
+                              className="icon-style"
+                              style={ { color: '#486ccf' } }
+                            />
+                          </div>
+                        ))
+                      }
                     </div>
                   </div>
-                  <div className="frame-101">
-                    <div className="frame-100">
+                  <div className="container-reservation">
+                    <div className="text-info-daily">
                       <p className="title-dayle">Diária a partir de</p>
                       <h3 className="price-title">
                         R$

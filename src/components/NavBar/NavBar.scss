@@ -1,11 +1,11 @@
 $neutral-color-text: var(--neutral-color-neutral-color-text, #333);
-$font-family: 'Inter';
-$font-size: 20px;
+$font-size: 22px;
 
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "Font Awesome 6 Pro";
   padding: 14px;
   gap: 24px;
   flex: 1 0 0;
@@ -16,11 +16,12 @@ nav {
   flex-direction: initial;
   align-items: center;
   justify-content: center;
+  font-family: "Font Awesome 6 Pro";
   gap: 24px;
 
   a {
     color: $neutral-color-text;
-    font-family: $font-family;
+    font-family: "Font Awesome 6 Pro";
     font-size: $font-size;
     font-style: normal;
     font-weight: 400;

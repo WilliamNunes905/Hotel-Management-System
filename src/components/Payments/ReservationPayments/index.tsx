@@ -1,29 +1,32 @@
 import { useEffect, useContext, useState } from 'react';
-import { Divider } from 'antd';
+import { Divider, message } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { PaymentsContext } from '../../../contexts/PaymentsContext';
-import '../Payments.scss';
 import { ApartmentContext } from '../../../contexts/ApartmentContext';
+import { validateForm } from '../../../utils/validateForm';
+import '../Payments.scss';
 
 export function ReservationPayments() {
+  const { bedrooms, setBedrooms } = useContext(ApartmentContext);
+  const [countDailyList, setCountDailyList] = useState<Record<number, number>>({});
+
   const {
     storageStayHotel,
     setStorageStayHotel,
-    clearGlobalState,
+    formInfo,
+    setFormInfo,
   } = useContext(PaymentsContext);
-
-  const { bedrooms, setBedrooms } = useContext(ApartmentContext);
-
-  const [countDailyList, setCountDailyList] = useState<Record<number, number>>({});
 
   useEffect(() => {
     const stayHotel = localStorage.getItem('reserve');
     if (stayHotel) setStorageStayHotel(JSON.parse(stayHotel));
-  }, [setStorageStayHotel]);
+    const localStorageRooms = JSON.parse(localStorage.getItem('rooms') as string) || [];
+    setBedrooms(localStorageRooms);
+  }, [setBedrooms, setStorageStayHotel]);
 
-  function handleDeleteBedroom(id: number) {
-    const updatedBedrooms = bedrooms.filter((bedroom) => bedroom.id !== id);
+  function handleDeleteBedroom(index: number) {
+    const updatedBedrooms = bedrooms.filter((_bedroom, idx) => idx !== index);
     setBedrooms(updatedBedrooms);
     localStorage.setItem('rooms', JSON.stringify(updatedBedrooms));
   }
@@ -44,6 +47,23 @@ export function ReservationPayments() {
         [id]: newValue,
       };
     });
+  }
+
+  function clearGlobalState() {
+    if (validateForm(formInfo)) {
+      setFormInfo({
+        name: '',
+        email: '',
+        creditCard: false,
+        pix: false,
+        cardName: '',
+        cardValidity: '',
+        cardCVC: '',
+      });
+      message.success('Reserva efetuada com Sucesso');
+      const keysToRemove = ['rooms', 'reserve', 'Form'];
+      keysToRemove.forEach((key) => localStorage.removeItem(key));
+    }
   }
 
   return (
@@ -73,7 +93,7 @@ export function ReservationPayments() {
                     { bedroom.hospedes }
                   </p>
                 </div>
-                <div className="frame-138">
+                <div className="container-card-hotel">
                   <h3 className="moneyFrame">
                     R$
                     {' '}
@@ -100,7 +120,7 @@ export function ReservationPayments() {
                     <button
                       type="button"
                       className="buttonDelete"
-                      onClick={ () => handleDeleteBedroom(bedroom.id) }
+                      onClick={ () => handleDeleteBedroom(index) }
                     >
                       <FontAwesomeIcon icon={ faTrash } />
                       Excluir

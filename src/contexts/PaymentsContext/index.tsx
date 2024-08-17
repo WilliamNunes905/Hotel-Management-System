@@ -1,12 +1,13 @@
 import { createContext, useState, Dispatch, SetStateAction } from 'react';
 import { Guest } from '../../types/GuestType';
 
-type TypeForm = {
+export type TypeForm = {
   name: string;
   email: string;
   creditCard: boolean;
   pix: boolean;
   cardName: string;
+  cardNumber: string;
   cardValidity: string;
   cardCVC: string;
 };
@@ -24,6 +25,7 @@ const initialFormInfo = {
   creditCard: false,
   pix: false,
   cardName: '',
+  cardNumber: '',
   cardValidity: '',
   cardCVC: '',
 };

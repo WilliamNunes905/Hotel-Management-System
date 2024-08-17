@@ -1,42 +1,35 @@
+import { useContext } from 'react';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCartFlatbedSuitcase,
 } from '@fortawesome/free-solid-svg-icons/faCartFlatbedSuitcase';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { Badge } from 'antd';
 import { NavBar } from '../NavBar';
-import logoSvg from '../../assets/logoSilbeck.svg';
 import './Header.scss';
+import { CountBagde } from '../../contexts/CountHeaderContext/CountBagde';
 
 export function Header() {
   const navigate = useNavigate();
-  const [bagde, setBadge] = useState([]);
-  console.log(bagde);
 
-  useEffect(() => {
-    const localStorageRooms = JSON.parse(localStorage.getItem('rooms') as string) || [];
-    setBadge(localStorageRooms);
-  }, [setBadge]);
+  const { badge } = useContext(CountBagde);
 
   return (
     <div className="header-container">
       <div className="logo-container">
         <a href="/">
-          <img
-            src={ logoSvg }
-            alt="Hotel Silbeck"
-            className="logo-image"
-          />
+          <h1 className="berkshire-swash-regular">Hotel System</h1>
         </a>
       </div>
       <NavBar />
       <div className="selects-container">
-        <h1 className="select-label">
-          BRL
+        <select className="select-label">
           <FontAwesomeIcon icon={ faChevronDown } />
-        </h1>
+          <option value="someOption">BRL</option>
+          <option value="someOption">EN</option>
+          <option value="someOption">ESP</option>
+        </select>
       </div>
       <button
         className="button-reservation"
@@ -48,7 +41,7 @@ export function Header() {
       <div className="container-badge">
         <Badge
           size="default"
-          count={ bagde.length }
+          count={ badge }
           className="badge-reservation"
         />
       </div>

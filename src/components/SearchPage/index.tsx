@@ -92,11 +92,10 @@ export function SearchPage() {
           onClick={ () => saveToLocalStorage('reserve', hotelGuests) }
         >
           <FontAwesomeIcon icon={ faMagnifyingGlass } />
-          Pesquisar
+          Adicionar
         </button>
       </div>
       <div />
-
     </div>
   );
 }

@@ -23,20 +23,17 @@ export function Feedbacks() {
 
   function handleLeftClick(e: React.MouseEvent<SVGSVGElement, MouseEvent>) {
     e.preventDefault();
-    const newIndex = currentIndex === 0 ? feedbackData.length - 1 : currentIndex - 1;
-    if (newIndex >= 0 && newIndex <= 5) {
+    if (currentIndex > 0) {
+      const newIndex = currentIndex - 1;
       setCurrentIndex(newIndex);
       scrollCarousel(newIndex);
-    } else {
-      setCurrentIndex(0);
-      scrollCarousel(0);
     }
   }
 
   function handleRightClick(e: React.MouseEvent<SVGSVGElement, MouseEvent>) {
     e.preventDefault();
-    const newIndex = currentIndex === feedbackData.length - 1 ? 0 : currentIndex + 1;
-    if (newIndex >= 0 && newIndex <= 5) {
+    if (currentIndex < feedbackData.length - 2) {
+      const newIndex = currentIndex + 1;
       setCurrentIndex(newIndex);
       scrollCarousel(newIndex);
     }
@@ -44,10 +41,11 @@ export function Feedbacks() {
 
   function scrollCarousel(index: number) {
     if (carouselRef.current) {
-      const itemWidth = carouselRef.current.offsetWidth;
-      carouselRef.current.scrollLeft = itemWidth * index * 2;
+      const itemWidth = carouselRef.current.offsetWidth / 2;
+      carouselRef.current.scrollLeft = itemWidth * index;
     }
   }
+
   const visibleFeedbacks = feedbackData.slice(currentIndex, currentIndex + 2);
 
   return (

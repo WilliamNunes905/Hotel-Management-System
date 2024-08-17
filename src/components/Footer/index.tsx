@@ -23,7 +23,7 @@ export function Footer() {
       <div className="footer-container-content">
         <div className="container-address">
           <div>
-            <img src={ logoSvg } alt="logo" className="img-logo" />
+            <h1 className="berkshire-swash">Hotel System</h1>
           </div>
           <div className="address-information">
             <p>

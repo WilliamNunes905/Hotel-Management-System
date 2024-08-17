@@ -17,6 +17,7 @@ import { Rooms } from '../../types/ApartmentListType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
+import { CountBagde } from '../../contexts/CountHeaderContext/CountBagde';
 
 library.add(
   faBellConcierge,
@@ -34,6 +35,8 @@ export function ApartmentList() {
     setApartmentList,
   } = useContext(ApartmentContext);
 
+  const { setBadge } = useContext(CountBagde);
+
   useEffect(() => {
     async function fetchData() {
       const response = await dataApartmentList();
@@ -50,6 +53,7 @@ export function ApartmentList() {
       content: 'Adicionado com Sucesso',
       duration: 2,
     });
+    setBadge(+1);
   }
 
   return (
@@ -59,7 +63,7 @@ export function ApartmentList() {
           <div className="container-text">
             <h1 className="h1-quartos">Quartos</h1>
             <p className="textInform">
-              Todos os nossos tipos de quartos incluem café da manhã.
+              todos os nossos tipos de quartos disponíveis para você.
             </p>
           </div>
           <div className="container-card">

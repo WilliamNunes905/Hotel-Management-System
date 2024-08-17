@@ -16,12 +16,10 @@ export function SearchPage() {
 
   return (
     <div className="container-search">
-
       <div className="container-data">
         <div className="container-estadia">
           <h1>Data Estadia</h1>
         </div>
-
         <div className="date-entry">
           <Space direction="vertical">
             Entrada
@@ -33,7 +31,6 @@ export function SearchPage() {
             />
           </Space>
         </div>
-
         <div className="date-exit">
           <Space direction="vertical">
             Saída
@@ -45,9 +42,7 @@ export function SearchPage() {
             />
           </Space>
         </div>
-
       </div>
-
       <div className="container-data">
         <div className="container-hospede">
           <h1>Hóspedes</h1>

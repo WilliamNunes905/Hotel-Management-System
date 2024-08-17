@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { axiosFooterData } from '../../services/FooterData';
 import { FooterDataTypes } from '../../types/FooterData';
-import logoSvg from '../../assets/logoSilbeckWhite.svg';
 import './Footer.scss';
 
 export function Footer() {
@@ -22,8 +21,6 @@ export function Footer() {
     <div className="footer-container">
       <div className="footer-container-content">
         <div className="container-address">
-      <div className="frame-128">
-        <div className="frame-131">
           <div>
             <h1 className="berkshire-swash">Hotel System</h1>
           </div>
@@ -61,10 +58,6 @@ export function Footer() {
         <p>Nos encontre nas redes sociais</p>
         <div className="social-media-links">
           <Link to="/Home" className="socialMedia">
-      <div className="container-about">
-        <p>Nos encontre nas redes sociais</p>
-        <div className="frame-132">
-          <Link to={ footerData?.instagram || '/Home' } className="socialMedia">
             <FontAwesomeIcon icon={ faInstagram } />
           </Link>
           <Link to="/Home" className="socialMedia">
@@ -75,11 +68,6 @@ export function Footer() {
           </Link>
         </div>
         <div className="box-newsletter">
-          <Link to={ footerData?.twitter || '/Home' } className="socialMedia">
-            <FontAwesomeIcon icon={ faTwitter } />
-          </Link>
-        </div>
-        <div className="container-130">
           <p>
             Assine nossa newsletter, toda semana um conteúdo novo
             <br />

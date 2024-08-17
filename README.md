@@ -26,7 +26,7 @@ hotel-management-system/
 │   ├── components/         # Componentes reutilizáveis
 │   ├── pages/              # Páginas da aplicação
 │   ├── services/           # Serviços para comunicação com APIs
-│   ├── styles/             # Estilos globais e variáveis SCSS
+│   ├── types/              # Armazenar definições de tipos TypeScript.
 │   ├── utils/              # Funções utilitárias
 │   ├── App.tsx             # Componente raiz da aplicação
 │   └── index.tsx           # Ponto de entrada da aplicação
@@ -51,5 +51,8 @@ cd Hotel-Management-System
 npm install
 ```
 4. Inicie o servidor de desenvolvimento:
+```
+npm run dev
+```
 
 

@@ -12,7 +12,6 @@ import { CountBagde } from '../../contexts/CountHeaderContext/CountBagde';
 
 export function Header() {
   const navigate = useNavigate();
-
   const { badge } = useContext(CountBagde);
 
   return (

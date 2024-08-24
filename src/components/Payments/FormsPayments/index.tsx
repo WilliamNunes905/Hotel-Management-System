@@ -135,7 +135,7 @@ export function FormsPayments() {
           <QRCode
             size={ 250 }
             style={ { height: '160px', maxWidth: '20%', width: '50%' } }
-            value="https://www.linkedin.com/in/williamnunesdev/"
+            value="https://github.com/WilliamNunes905"
             viewBox="0 0 256 256"
           />
         )}

@@ -57,6 +57,7 @@ export function ReservationPayments() {
         creditCard: false,
         pix: false,
         cardName: '',
+        cardNumber: '',
         cardValidity: '',
         cardCVC: '',
       });

@@ -9,7 +9,7 @@ import {
   faWheelchair,
   faWifi,
 } from '@fortawesome/free-solid-svg-icons';
-import { Rate, message } from 'antd';
+import { Rate } from 'antd';
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
 import { useContext, useEffect } from 'react';
 import { dataApartmentList } from '../../services/dataApartmentList';
@@ -18,6 +18,7 @@ import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
 import { CountBagde } from '../../contexts/CountHeaderContext/CountBagde';
+import { messageSucess } from '../../utils/messageSucess';
 
 library.add(
   faBellConcierge,
@@ -49,10 +50,7 @@ export function ApartmentList() {
     const previousApartments = JSON.parse(localStorage.getItem('rooms') as string) || [];
     const updatedApartments = [...previousApartments, apartment];
     saveToLocalStorage('rooms', updatedApartments);
-    message.success({
-      content: 'Adicionado com Sucesso',
-      duration: 2,
-    });
+    messageSucess();
     setBadge(+1);
   }
 

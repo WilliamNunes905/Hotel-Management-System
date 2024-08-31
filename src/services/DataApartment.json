@@ -7,7 +7,7 @@
     "nome": "Suite Luxo",
     "img": "https://www.kayak.pt/rimg/himg/c7/c2/cb/ice-79912-63022706_3XL-535749.jpg?width=968&height=607&crop=true",
     "descricao": "Uma suíte luxuosa com vista para o mar e todas as comodidades modernas.",
-    "preco": 350.00,
+    "preco": 450.00,
     "caracteristicas": [
       {
         "id": 1,
@@ -31,19 +31,19 @@
       }
     ],
     "avaliacao": {
-      "nota": 4.8,
-      "quantidade": 120
+      "nota": 5,
+      "quantidade": 98
     }
   },
   {
     "id": 2,
-    "hospedes": 4,
+    "hospedes": 3,
     "codigo": "R002",
     "url": "https://example.com/hotel2",
     "nome": "Quarto Standard",
     "img": "https://media-cdn.tripadvisor.com/media/photo-s/07/de/39/d6/hotel-atlantico-rio.jpg",
     "descricao": "Quarto confortável com todas as necessidades básicas para uma estadia agradável.",
-    "preco": 150.00,
+    "preco": 350.00,
     "caracteristicas": [
       {
         "id": 4,
@@ -57,8 +57,8 @@
       }
     ],
     "avaliacao": {
-      "nota": 4.3,
-      "quantidade": 85
+      "nota": 4,
+      "quantidade": 52
     }
   },
   {
@@ -69,7 +69,7 @@
     "nome": "Quarto Individual",
     "img": "https://static.wixstatic.com/media/358476_bdc788871c8a4fc38cb326f4e020985a~mv2.jpg/v1/fill/w_619,h_451,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/358476_bdc788871c8a4fc38cb326f4e020985a~mv2.jpg",
     "descricao": "Quarto ideal para uma estadia curta, com todas as facilidades necessárias para um bom descanso.",
-    "preco": 90.00,
+    "preco": 110.00,
     "caracteristicas": [
       {
         "id": 6,
@@ -78,8 +78,91 @@
       }
     ],
     "avaliacao": {
-      "nota": 3.8,
-      "quantidade": 60
+      "nota": 3,
+      "quantidade": 34
+    }
+  },
+  {
+    "id": 4,
+    "hospedes": 2,
+    "codigo": "R004",
+    "url": "https://example.com/hotel4",
+    "nome": "Suite Premium",
+    "img": "https://www.thecl.com/wp-content/uploads/2022/09/ChampagneLodge_2020_0027-scaled-1.jpg",
+    "descricao": "Uma suíte espaçosa com varanda privada e vista para o jardim.",
+    "preco": 920.00,
+    "caracteristicas": [
+      {
+        "id": 7,
+        "nome": "Varanda",
+        "icone": "fa-solid fa-chair"
+      },
+      {
+        "id": 8,
+        "nome": "Ar Condicionado",
+        "icone": "fa-solid fa-snowflake"
+      },
+      {
+        "id": 9,
+        "nome": "Frigobar",
+        "icone": "fa-solid fa-cocktail"
+      }
+    ],
+    "avaliacao": {
+      "nota": 5,
+      "quantidade": 15
+    }
+  },
+  {
+    "id": 5,
+    "hospedes": 3,
+    "codigo": "R005",
+    "url": "https://example.com/hotel5",
+    "nome": "Quarto Executivo",
+    "img": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413294961.jpg?k=62290403138e22224db543717ea6d57f88a76ffb4e79172f54cbd79cb57c93a8&o=&hp=1",
+    "descricao": "Quarto moderno e elegante, ideal para viagens de negócios.",
+    "preco": 480.00,
+    "caracteristicas": [
+      {
+        "id": 10,
+        "nome": "Mesa de Trabalho",
+        "icone": "fa-solid fa-desk"
+      },
+      {
+        "id": 11,
+        "nome": "Impressora",
+        "icone": "fa-solid fa-print"
+      }
+    ],
+    "avaliacao": {
+      "nota": 4.5,
+      "quantidade": 70
+    }
+  },
+  {
+    "id": 6,
+    "hospedes": 5,
+    "codigo": "R006",
+    "url": "https://example.com/hotel6",
+    "nome": "Quarto Familiar",
+    "img": "https://praiadosolhotel.beeweb.net.br/wp-content/uploads/sites/51/2023/06/quarto-2.jpg",
+    "descricao": "Ideal para famílias, este quarto oferece camas grandes, área de estar e cozinha equipada. Inclui banheiro privativo e TV de tela plana, além de acesso Wi-Fi gratuito. Perfeito para uma estadia confortável e prática.",
+    "preco": 350.00,
+    "caracteristicas": [
+      {
+        "id": 12,
+        "nome": "Cozinha Completa",
+        "icone": "fa-solid fa-utensils"
+      },
+      {
+        "id": 13,
+        "nome": "Sala de Estar",
+        "icone": "fa-solid fa-couch"
+      }
+    ],
+    "avaliacao": {
+      "nota": 4.7,
+      "quantidade": 37
     }
   }
 ]

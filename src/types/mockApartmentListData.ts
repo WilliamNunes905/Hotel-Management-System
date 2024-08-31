@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable max-len */
 import { Rooms } from './ApartmentListType';
 
@@ -13,7 +14,7 @@ export const apartmentListData: Rooms[] = [
                + 'para o mar. Com um design elegante e moderno, este espaço é equipado com '
                + 'todas as comodidades de alto padrão, incluindo uma cama king-size, área de estar '
                + 'aconchegante, banheiro luxuoso com chuveiro de efeito chuva, quarto é confortável e funcional!',
-    preco: 350.00,
+    preco: 450.00,
     caracteristicas: [
       {
         id: 1,
@@ -38,12 +39,12 @@ export const apartmentListData: Rooms[] = [
     ],
     avaliacao: {
       nota: 5,
-      quantidade: 120,
+      quantidade: 98,
     },
   },
   {
     id: 2,
-    hospedes: 4,
+    hospedes: 3,
     codigo: 'R002',
     url: 'https://example.com/hotel2',
     nome: 'Quarto Standard',
@@ -52,12 +53,12 @@ export const apartmentListData: Rooms[] = [
                + 'funcionalidade. Com uma decoração moderna e confortável, este quarto possui '
                + 'uma cama queen-size, uma área de trabalho e um banheiro privativo. Perfeito para '
                + 'uma estadia relaxante com todas as comodidades básicas que você precisa.',
-    preco: 150.00,
+    preco: 350.00,
     caracteristicas: [
       {
         id: 5,
-        nome: 'Acessibilidade',
-        icone: 'fa-solid fa-wheelchair',
+        nome: 'Wi-Fi',
+        icone: 'fa-solid fa-wifi',
       },
       {
         id: 6,
@@ -71,8 +72,8 @@ export const apartmentListData: Rooms[] = [
       },
     ],
     avaliacao: {
-      nota: 3.8,
-      quantidade: 85,
+      nota: 4,
+      quantidade: 52,
     },
   },
   {
@@ -86,7 +87,7 @@ export const apartmentListData: Rooms[] = [
                + 'confortável e prático. Este quarto compacto é equipado com uma cama confortável, '
                + 'uma pequena mesa de trabalho, e um banheiro privativo. Ideal para estadias curtas '
                + 'ou para quem está em viagem de negócios.',
-    preco: 90.00,
+    preco: 110.00,
     caracteristicas: [
       {
         id: 8,
@@ -100,8 +101,130 @@ export const apartmentListData: Rooms[] = [
       },
     ],
     avaliacao: {
-      nota: 2.5,
-      quantidade: 60,
+      nota: 3,
+      quantidade: 34,
+    },
+  },
+  {
+    id: 4,
+    hospedes: 2,
+    codigo: 'R004',
+    url: 'https://example.com/hotel4',
+    nome: 'Suite Premium',
+    img: 'https://www.thecl.com/wp-content/uploads/2022/09/ChampagneLodge_2020_0027-scaled-1.jpg',
+    descricao: 'A Suite Premium oferece luxo e conforto incomparáveis,'
+             + ' Equipado com uma cama king-size, ar condicionado e hidromassagem.'
+             + ' A decoração sofisticada e as comodidades modernas garantem uma experiência de hospedagem excepcional.'
+             + ' Perfeita para quem busca um retiro relaxante e elegante.',
+    preco: 920.00,
+    caracteristicas: [
+      {
+        id: 7,
+        nome: 'Internet',
+        icone: 'fa-solid fa-wifi',
+      },
+      {
+        id: 8,
+        nome: 'Ar Condicionado',
+        icone: 'fa-solid fa-snowflake',
+      },
+      {
+        id: 9,
+        nome: 'Hidromassagem',
+        icone: 'fa-solid fa-hot-tub-person',
+      },
+      {
+        id: 10,
+        nome: 'Café da Manhã Incluso',
+        icone: 'fa-solid fa-mug-hot',
+      },
+      {
+        id: 6,
+        nome: 'Televisão',
+        icone: 'fa-solid fa-tv',
+      },
+    ],
+    avaliacao: {
+      nota: 5,
+      quantidade: 15,
+    },
+  },
+  {
+    id: 5,
+    hospedes: 3,
+    codigo: 'R005',
+    url: 'https://example.com/hotel5',
+    nome: 'Quarto Executivo',
+    img: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/413294961.jpg?k=62290403138e22224db543717ea6d57f88a76ffb4e79172f54cbd79cb57c93a8&o=&hp=1',
+    descricao: 'O Quarto Executivo é a escolha ideal para viajantes de negócios,'
+              + ' Com um ambiente moderno e elegante, você encontrará uma área de estar relaxante'
+              + ' e uma cama confortável para uma boa noite de sono.'
+              + ' Equipado com todas as comodidades necessárias, garantindo uma estadia produtiva e sem estresse.',
+    preco: 480.00,
+    caracteristicas: [
+      {
+        id: 7,
+        nome: 'Internet',
+        icone: 'fa-solid fa-wifi',
+      },
+      {
+        id: 8,
+        nome: 'Ar Condicionado',
+        icone: 'fa-solid fa-snowflake',
+      },
+      {
+        id: 10,
+        nome: 'Café da Manhã Incluso',
+        icone: 'fa-solid fa-mug-hot',
+      },
+      {
+        id: 11,
+        nome: 'choveiro',
+        icone: 'fa-solid fa-shower',
+      },
+    ],
+    avaliacao: {
+      nota: 4.5,
+      quantidade: 70,
+    },
+  },
+  {
+    id: 6,
+    hospedes: 5,
+    codigo: 'R006',
+    url: 'https://example.com/hotel6',
+    nome: 'Quarto Familiar',
+    img: 'https://praiadosolhotel.beeweb.net.br/wp-content/uploads/sites/51/2023/06/quarto-2.jpg',
+    descricao: 'Desfrute de uma estadia tranquila e confortável em nosso Quarto Familiar.'
+              + ' Projetado para acomodar toda a família, este espaço oferece duas camas grandes,'
+              + ' área de estar aconchegante e uma decoração moderna e funcional,'
+              + ' Relaxe após um dia de passeios com TV de tela plana e acesso rápido à internet.',
+    preco: 350.00,
+    caracteristicas: [
+      {
+        id: 7,
+        nome: 'Internet',
+        icone: 'fa-solid fa-wifi',
+      },
+      {
+        id: 7,
+        nome: 'Almoço',
+        icone: 'fa-solid fa-bell-concierge',
+      },
+      {
+        id: 6,
+        nome: 'Televisão',
+        icone: 'fa-solid fa-tv',
+      },
+      {
+        id: 15,
+        nome: 'Espaço para Crianças',
+        icone: 'fa-solid fa-gamepad',
+      },
+    ],
+    avaliacao: {
+      nota: 4.7,
+      quantidade: 37,
     },
   },
 ];

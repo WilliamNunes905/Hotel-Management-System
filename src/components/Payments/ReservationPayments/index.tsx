@@ -5,11 +5,13 @@ import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { PaymentsContext } from '../../../contexts/PaymentsContext';
 import { ApartmentContext } from '../../../contexts/ApartmentContext';
 import { validateForm } from '../../../utils/validateForm';
+import { SearchContext } from '../../../contexts/SearchContext';
 import '../Payments.scss';
 
 export function ReservationPayments() {
   const { bedrooms, setBedrooms } = useContext(ApartmentContext);
   const [countDailyList, setCountDailyList] = useState<Record<number, number>>({});
+  const { hotelGuests } = useContext(SearchContext);
 
   const {
     storageStayHotel,
@@ -91,7 +93,7 @@ export function ReservationPayments() {
                   <p>
                     Qtde Hóspedes:
                     {' '}
-                    { bedroom.hospedes }
+                    { Number(hotelGuests.adults) + Number(hotelGuests.child) }
                   </p>
                 </div>
                 <div className="container-card-hotel">

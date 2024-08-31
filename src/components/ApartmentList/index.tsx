@@ -8,6 +8,9 @@ import {
   faUser,
   faWheelchair,
   faWifi,
+  faSnowflake,
+  faShower,
+  faGamepad,
 } from '@fortawesome/free-solid-svg-icons';
 import { Rate } from 'antd';
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
@@ -28,6 +31,9 @@ library.add(
   faUser,
   faWifi,
   faWheelchair,
+  faSnowflake,
+  faShower,
+  faGamepad,
 );
 
 export function ApartmentList() {

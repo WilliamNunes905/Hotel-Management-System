@@ -42,7 +42,7 @@ export function Footer() {
         <div className="container-information">
           <div className="container-about">
             <p className="strong">Sobre nós</p>
-            <p>Nossa História</p>
+            <a href="/ourHistory" className="OurHistory">Nossa História</a>
             <p>Contato</p>
             <p>Termos e Condições</p>
           </div>

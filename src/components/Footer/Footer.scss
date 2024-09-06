@@ -148,11 +148,19 @@
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-  
   }
 
+  a {
+    color: var(--neutral-color-bg, #F5F5F5);
+    font-family: "Font Awesome 6 Pro";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-decoration: none;
+  }
   .strong {
-    font-size: 20px;
+    font-size: 21px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;

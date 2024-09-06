@@ -1,4 +1,4 @@
-import { FeedbacksType } from './FeedbacksType';
+import { FeedbacksType } from '../types/FeedbacksType';
 
 export const feedbacksData: FeedbacksType[] = [
   {

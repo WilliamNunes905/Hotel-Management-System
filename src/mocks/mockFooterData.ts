@@ -1,4 +1,4 @@
-import { FooterDataTypes } from './FooterData';
+import { FooterDataTypes } from '../types/FooterData';
 
 export const hotelFooterData: FooterDataTypes = {
   hotel: {

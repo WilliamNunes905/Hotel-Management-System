@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable max-len */
-import { Rooms } from './ApartmentListType';
+import { Rooms } from '../types/ApartmentListType';
 
 export const apartmentListData: Rooms[] = [
   {

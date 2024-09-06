@@ -1,5 +1,5 @@
 import { Rooms } from '../types/ApartmentListType';
-import { apartmentListData } from '../types/mockApartmentListData';
+import { apartmentListData } from '../mocks/mockApartmentListData';
 
 export async function dataApartmentList(): Promise<Rooms[]> {
   try {

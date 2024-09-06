@@ -1,5 +1,5 @@
 import { FooterDataTypes } from '../types/FooterData';
-import { hotelFooterData } from '../types/mockFooterData';
+import { hotelFooterData } from '../mocks/mockFooterData';
 
 export async function axiosFooterData(): Promise<FooterDataTypes> {
   try {

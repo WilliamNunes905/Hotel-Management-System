@@ -1,5 +1,5 @@
 import { FeedbacksType } from '../types/FeedbacksType';
-import { feedbacksData } from '../types/mockFeedbacks';
+import { feedbacksData } from '../mocks/mockFeedbacks';
 
 export async function getFeedbacksData(): Promise<FeedbacksType[]> {
   try {

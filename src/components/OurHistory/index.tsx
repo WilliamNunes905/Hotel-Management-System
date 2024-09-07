@@ -9,14 +9,14 @@ export function History() {
           <h1>
             Muito prazer,
             <br />
-            nós somos
+            nós somos a
             <br />
-            a Manager System!
+            Manager System!
           </h1>
         </div>
         <div className="text-history">
           <p>
-            Há 28 anos, estamos comprometidos em levar o sucesso aos nossos clientes.
+            Há 2 anos, estamos comprometidos em levar o sucesso aos nossos clientes.
             <strong>
               {' '}
               Tudo o que fazemos é focado em ajudá-los

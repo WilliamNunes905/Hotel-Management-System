@@ -86,7 +86,7 @@
   justify-content: center;
   gap: 10px;
   width: 30px;
-  }
+   }
   }
 
   .box-newsletter {
@@ -160,9 +160,22 @@
     text-decoration: none;
   }
   .strong {
-    font-size: 21px;
+    font-size: 22px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 700;
     line-height: normal;
+  }
+  .link-footer {
+    color: var(--neutral-color-bg, #F5F5F5);
+    font-family: "Font Awesome 6 Pro";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-decoration: none;
+  }
+  .link-footer:hover {
+    transition: 0.2s;
+    color: #28eca4;
   }
 }

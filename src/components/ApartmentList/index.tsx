@@ -15,6 +15,8 @@ import {
 import { Rate } from 'antd';
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
 import { useContext, useEffect } from 'react';
+import { EyeOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import { dataApartmentList } from '../../services/dataApartmentList';
 import { Rooms } from '../../types/ApartmentListType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
@@ -43,6 +45,7 @@ export function ApartmentList() {
   } = useContext(ApartmentContext);
 
   const { setBadge } = useContext(CountBagde);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -59,6 +62,10 @@ export function ApartmentList() {
     messageSucess();
     setBadge(+1);
   }
+
+  const handleClickBedroomDetails = () => {
+    navigate('/bedroom-details');
+  };
 
   return (
     <div className="container-global">
@@ -130,6 +137,10 @@ export function ApartmentList() {
                         {apartment.preco.toFixed(2)}
                       </h3>
                     </div>
+                    <EyeOutlined
+                      className="option"
+                      onClick={ handleClickBedroomDetails }
+                    />
                     <button
                       className="button-style"
                       onClick={ () => handleClick(apartment) }

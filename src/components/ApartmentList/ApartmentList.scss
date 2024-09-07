@@ -117,7 +117,7 @@
       display: flex;
       padding: var(--Components-Input-Component-paddingBlockSM, 12px 0px);
       align-items: flex-end;
-      gap: var(--Components-Button-Component-onlyIconSize, 10px);
+      gap: var(--Components-Button-Component-onlyIconSize, 8px);
       align-self: stretch;
 
     .text-info-daily {
@@ -255,6 +255,20 @@
       line-height: 28px;
     }
   }
+
+  .option {
+    align-items: center;
+    width: 1em;
+    height: 1.10em;
+    font-size: 2.5em;
+    color: #182558;
+    cursor: pointer;
+   }
+
+   .option:hover {
+    transition: 0.2s;
+    color: #28eca4;
+   }
   
   .apartment-icons {
       align-items: center;

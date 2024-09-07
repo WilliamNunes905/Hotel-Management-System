@@ -22,7 +22,7 @@ export function Footer() {
       <div className="footer-container-content">
         <div className="container-address">
           <div>
-            <h1 className="berkshire-swash">Hotel System</h1>
+            <a href="/" className="berkshire-swash">Hotel System</a>
           </div>
           <div className="address-information">
             <p>
@@ -42,15 +42,15 @@ export function Footer() {
         <div className="container-information">
           <div className="container-about">
             <p className="strong">Sobre nós</p>
-            <p>Nossa História</p>
-            <p>Contato</p>
-            <p>Termos e Condições</p>
+            <a href="/ourHistory" className="link-footer">Nossa História</a>
+            <a href="/" className="link-footer">Contato</a>
+            <a href="/" className="link-footer">Termos e Condições</a>
           </div>
           <div className="container-about">
             <p className="strong">Outros Serviços</p>
-            <p>Passeios</p>
-            <p>Spa</p>
-            <p>Reserva Espaço</p>
+            <a href="/" className="link-footer">Passeios</a>
+            <a href="/" className="link-footer">Spa</a>
+            <a href="/" className="link-footer">Reserva Espaço</a>
           </div>
         </div>
       </div>

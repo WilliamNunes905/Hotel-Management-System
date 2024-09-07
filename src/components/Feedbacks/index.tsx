@@ -3,7 +3,7 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import { Rate } from 'antd';
 import { format } from 'date-fns';
 import { useEffect, useRef, useState } from 'react';
-import { getFeedbacksData } from '../../services/FeedbacksData';
+import { getFeedbacksData } from '../../services/feedbacksData';
 import { FeedbacksType } from '../../types/FeedbacksType';
 import iconSvg from '../../assets/UserIcon.svg';
 import './Feedbacks.scss';

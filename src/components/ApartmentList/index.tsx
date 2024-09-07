@@ -8,16 +8,22 @@ import {
   faUser,
   faWheelchair,
   faWifi,
+  faSnowflake,
+  faShower,
+  faGamepad,
 } from '@fortawesome/free-solid-svg-icons';
-import { Rate, message } from 'antd';
+import { Rate } from 'antd';
 import { IconProp, library } from '@fortawesome/fontawesome-svg-core';
 import { useContext, useEffect } from 'react';
+import { EyeOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 import { dataApartmentList } from '../../services/dataApartmentList';
 import { Rooms } from '../../types/ApartmentListType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { ApartmentContext } from '../../contexts/ApartmentContext';
 import './ApartmentList.scss';
 import { CountBagde } from '../../contexts/CountHeaderContext/CountBagde';
+import { messageSucess } from '../../utils/messageSucess';
 
 library.add(
   faBellConcierge,
@@ -27,6 +33,9 @@ library.add(
   faUser,
   faWifi,
   faWheelchair,
+  faSnowflake,
+  faShower,
+  faGamepad,
 );
 
 export function ApartmentList() {
@@ -36,6 +45,7 @@ export function ApartmentList() {
   } = useContext(ApartmentContext);
 
   const { setBadge } = useContext(CountBagde);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
@@ -49,12 +59,13 @@ export function ApartmentList() {
     const previousApartments = JSON.parse(localStorage.getItem('rooms') as string) || [];
     const updatedApartments = [...previousApartments, apartment];
     saveToLocalStorage('rooms', updatedApartments);
-    message.success({
-      content: 'Adicionado com Sucesso',
-      duration: 2,
-    });
+    messageSucess();
     setBadge(+1);
   }
+
+  const handleClickBedroomDetails = () => {
+    navigate('/bedroom-details');
+  };
 
   return (
     <div className="container-global">
@@ -126,6 +137,10 @@ export function ApartmentList() {
                         {apartment.preco.toFixed(2)}
                       </h3>
                     </div>
+                    <EyeOutlined
+                      className="option"
+                      onClick={ handleClickBedroomDetails }
+                    />
                     <button
                       className="button-style"
                       onClick={ () => handleClick(apartment) }

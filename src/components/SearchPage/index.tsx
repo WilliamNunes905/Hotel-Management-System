@@ -6,12 +6,18 @@ import { Guest } from '../../types/GuestType';
 import { saveToLocalStorage } from '../../utils/saveToLocalStorage';
 import { SearchContext } from '../../contexts/SearchContext';
 import './SearchPage.scss';
+import { messageSucess } from '../../utils/messageSucess';
 
 export function SearchPage() {
   const { hotelGuests, setHotelGuests } = useContext(SearchContext);
 
   const handleHotelGuests = (key: keyof Guest, value: string) => {
     setHotelGuests({ ...hotelGuests, [key]: value });
+  };
+
+  const handleReserveHotel = () => {
+    saveToLocalStorage('reserve', hotelGuests);
+    messageSucess();
   };
 
   return (
@@ -84,10 +90,10 @@ export function SearchPage() {
       <div className="container-button">
         <button
           className="button-style"
-          onClick={ () => saveToLocalStorage('reserve', hotelGuests) }
+          onClick={ () => handleReserveHotel() }
         >
           <FontAwesomeIcon icon={ faMagnifyingGlass } />
-          Adicionar
+          Pesquisar
         </button>
       </div>
       <div />

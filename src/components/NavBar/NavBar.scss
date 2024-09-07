@@ -24,12 +24,13 @@ nav {
     font-family: "Font Awesome 6 Pro";
     font-size: $font-size;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 22px;
     text-decoration: none;
   }
 
   a:hover {
-    color: #182558;
+    transition: 0.2s;
+    color: #28eca4;
   }
 }
